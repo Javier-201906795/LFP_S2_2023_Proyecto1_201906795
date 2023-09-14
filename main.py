@@ -1,3 +1,3 @@
 from Operaciones import *
 
-sumamensaje.hola()
+aritmetica.suma()
