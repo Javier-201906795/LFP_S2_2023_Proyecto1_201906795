@@ -1,4 +1,5 @@
 from Operaciones import *
+from Archivojson import *
 
 aritmetica.suma(5,6)
 aritmetica.resta(3,1)
@@ -10,3 +11,8 @@ aritmetica.inverso(5,3)
 aritmetica.seno(45)
 aritmetica.coseno(45)
 aritmetica.tangente(45)
+
+print("\n------------------------")
+########################################################################
+
+Sjson.hola()
