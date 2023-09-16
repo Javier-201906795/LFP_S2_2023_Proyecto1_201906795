@@ -4,22 +4,25 @@ import json
 
 def jsonabrirarchivo(ruta):
     nombre, extension = os.path.splitext(ruta)
-    print('Nombre: ',nombre,' | Extension: ', extension)
-
-    textoarchivo = ''
-    try:
-        with open(ruta, "r") as archivo:
-            textoarchivo = archivo.read()
-            return textoarchivo
-    except:
-        print("♦ Error: no se pudo abrir el archivo.")
     
+    if (extension == '.json' or extension == '.JSON' or extension == '.Json'):
+        textoarchivo = ''
+        try:
+            with open(ruta, "r") as archivo:
+                textoarchivo = archivo.read()
+                return textoarchivo
+        except:
+            print("♦ Error: no se pudo abrir el archivo.")
+    else:
+        print("♦ Error: no se pudo abrir el archivo porque no es un archivo JSON.")
 
-def textoajson():
+
+
+
+def diccionarioJSON(ruta):
     try:
-        txtjson = jsonabrirarchivo('test.json')
-        print(txtjson)
+        txtjson = jsonabrirarchivo(ruta)
         datosdiccionario = json.loads(txtjson)
-        print(datosdiccionario)
+        return datosdiccionario
     except:
         print("♦ Error: no se pudo convertir en un diccionario el texto proporcionado")

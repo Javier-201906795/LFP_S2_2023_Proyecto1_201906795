@@ -19,4 +19,9 @@ print("\n------------------------")
 # textojson = Sjson.jsonabrirarchivo("test.json")
 # print('\n--- \n',textojson,'\n---')
 
-Sjson.textoajson()
+# Sjson.textoajson()
+
+#Abir archivo y obtener un diccionario
+#diccionarioJSON
+diccionrarioJson = Sjson.diccionarioJSON('test.json')
+print(diccionrarioJson)
