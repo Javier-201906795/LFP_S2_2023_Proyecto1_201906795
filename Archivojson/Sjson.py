@@ -1,16 +1,16 @@
 import os
 
-def hola():
-    print("hola mundo")
 
-
-def abrirarchivo():
-    ruta = 'test.json'
+def jsonabrirarchivo(ruta):
     nombre, extension = os.path.splitext(ruta)
-    print(nombre, extension)
+    print('Nombre: ',nombre,' | Extension: ', extension)
 
+    textoarchivo = ''
     try:
         with open(ruta, "r") as archivo:
-            print(archivo.read())
+            textoarchivo = archivo.read()
+            return textoarchivo
     except:
         print("♦ Error: no se pudo abrir el archivo.")
+    
+    

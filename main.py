@@ -15,5 +15,6 @@ aritmetica.tangente(45)
 print("\n------------------------")
 ########################################################################
 
-Sjson.hola()
-Sjson.abrirarchivo()
+
+textojson = Sjson.jsonabrirarchivo("test.json")
+print('\n--- \n',textojson,'\n---')
