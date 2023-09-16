@@ -1,4 +1,6 @@
 from tkinter import *
+from tkinter.ttk import Combobox
+
 from Operaciones import *
 from Archivojson import *
 
@@ -25,24 +27,25 @@ print(listaOperaciones[0]['valor2'])
 
 
 ########################################################################
-def hola():
-    print("hola...")
+def listaseleccion():
+    print(listaopcionesarchivo.get())
 
 raiz = Tk()
 raiz.title('LFP Proyecto 1 | 201906795')
 raiz.geometry('900x500')
-# lbl = Label(raiz,text='label1')
-# lbl.pack()
-# btn = Button(raiz, text='boton1', command= hola)
-# btn.pack()
 
-btnanalizar = Button(raiz,text='Analizar', bg='#313446', fg='#FFFFFF')
-btnanalizar.place(x=200,y=10, width=80, height= 35)
+btnanalizar = Button(raiz,text='Analizar', bg='#313446', fg='#FFFFFF', command=listaseleccion)
+btnanalizar.place(x=230,y=10, width=80, height= 35)
 
 btnerrores = Button(raiz,text='Errores', bg='#313446', fg='#FFFFFF')
-btnerrores.place(x=340,y=10, width=80, height= 35)
+btnerrores.place(x=370,y=10, width=80, height= 35)
 
 btnreportes = Button(raiz,text='Reportes', bg='#313446', fg='#FFFFFF')
-btnreportes.place(x=480,y=10, width=80, height= 35)
+btnreportes.place(x=510,y=10, width=80, height= 35)
+
+opcionesarchivo = ['ARCHIVO','Abrir','Guardar','Guardar como', 'Salir']
+listaopcionesarchivo = Combobox(raiz, text='Archivo', values = opcionesarchivo)
+listaopcionesarchivo.place(x=50,y=10, width=130, height= 35)
+listaopcionesarchivo.current(0)
 
 raiz.mainloop()
