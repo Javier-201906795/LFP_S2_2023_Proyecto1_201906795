@@ -16,5 +16,7 @@ print("\n------------------------")
 ########################################################################
 
 
-textojson = Sjson.jsonabrirarchivo("test.json")
-print('\n--- \n',textojson,'\n---')
+# textojson = Sjson.jsonabrirarchivo("test.json")
+# print('\n--- \n',textojson,'\n---')
+
+Sjson.textoajson()

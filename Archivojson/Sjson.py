@@ -1,4 +1,5 @@
 import os
+import json
 
 
 def jsonabrirarchivo(ruta):
@@ -13,4 +14,12 @@ def jsonabrirarchivo(ruta):
     except:
         print("♦ Error: no se pudo abrir el archivo.")
     
-    
+
+def textoajson():
+    try:
+        txtjson = jsonabrirarchivo('test.json')
+        print(txtjson)
+        datosdiccionario = json.loads(txtjson)
+        print(datosdiccionario)
+    except:
+        print("♦ Error: no se pudo convertir en un diccionario el texto proporcionado")
