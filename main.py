@@ -15,13 +15,10 @@ aritmetica.tangente(45)
 print("\n------------------------")
 ########################################################################
 
-
-# textojson = Sjson.jsonabrirarchivo("test.json")
-# print('\n--- \n',textojson,'\n---')
-
-# Sjson.textoajson()
-
-#Abir archivo y obtener un diccionario
-#diccionarioJSON
 diccionrarioJson = Sjson.diccionarioJSON('test.json')
-print(diccionrarioJson)
+listaOperaciones = diccionrarioJson['operaciones']
+print(listaOperaciones[0])
+print(listaOperaciones[0]['operacion'])
+print(listaOperaciones[0]['valor1'])
+print(listaOperaciones[0]['valor2'])
+
