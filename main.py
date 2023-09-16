@@ -45,7 +45,10 @@ btnreportes.place(x=510,y=10, width=80, height= 35)
 
 opcionesarchivo = ['ARCHIVO','Abrir','Guardar','Guardar como', 'Salir']
 listaopcionesarchivo = Combobox(raiz, text='Archivo', values = opcionesarchivo)
-listaopcionesarchivo.place(x=50,y=10, width=130, height= 35)
+listaopcionesarchivo.place(x=50,y=12, width=130, height= 30)
 listaopcionesarchivo.current(0)
+
+inputtexto = Entry(raiz)
+inputtexto.place(x=80,y=100, width=800, height=350)
 
 raiz.mainloop()
