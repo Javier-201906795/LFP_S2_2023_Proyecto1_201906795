@@ -1,3 +1,4 @@
+from tkinter import *
 from Operaciones import *
 from Archivojson import *
 
@@ -22,3 +23,16 @@ print(listaOperaciones[0]['operacion'])
 print(listaOperaciones[0]['valor1'])
 print(listaOperaciones[0]['valor2'])
 
+
+########################################################################
+def hola():
+    print("hola...")
+
+raiz = Tk()
+raiz.title('LFP Proyecto 1 | 201906795')
+raiz.geometry('900x500')
+lbl = Label(raiz,text='label1')
+lbl.pack()
+btn = Button(raiz, text='boton1', command= hola)
+btn.pack()
+raiz.mainloop()
