@@ -19,9 +19,8 @@ def jsonabrirarchivo(ruta):
 
 
 
-def diccionarioJSON(ruta):
+def diccionarioJSON(txtjson):
     try:
-        txtjson = jsonabrirarchivo(ruta)
         datosdiccionario = json.loads(txtjson)
         return datosdiccionario
     except:
