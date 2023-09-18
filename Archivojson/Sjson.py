@@ -26,3 +26,6 @@ def diccionarioJSON(ruta):
         return datosdiccionario
     except:
         print("♦ Error: no se pudo convertir en un diccionario el texto proporcionado")
+
+
+

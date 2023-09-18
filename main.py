@@ -8,16 +8,35 @@ from Archivojson import *
 
 
 #######################################################################
+VArchivo ={'ruta':''}
+
+
+
+#######################################################################
 def Abrir():
     print('abrir')
     rutaarchivo = filedialog.askopenfilename()
     print(rutaarchivo)
     textoarchivo = Sjson.jsonabrirarchivo(rutaarchivo)
+    #añadir texto a input
     inputtexto.insert('1.0', str(textoarchivo))
+    #Guardar en variable
+    VArchivo['ruta'] = rutaarchivo
+    # diccionrarioJson = Sjson.diccionarioJSON(rutaarchivo)
+    # print(diccionrarioJson)
     
 
 def Guardar():
     print('Guardar')
+    print('Ruta: ',VArchivo['ruta'])
+    ruta = VArchivo['ruta']
+    #Obtener texto de input
+    texto = str(inputtexto.get("1.0",END))
+    #Guardar
+    archivo = open(ruta,'w')
+    archivo.write(texto)
+    archivo.close()
+    print('Archivo guardado.')
 
 def Guardarcomo():
     print('Guardarcomo')
