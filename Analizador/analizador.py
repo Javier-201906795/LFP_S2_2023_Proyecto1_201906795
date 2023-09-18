@@ -1,6 +1,6 @@
 import json
 
-def hola():
-    print('hola')
 
-    
+
+def lexico(texto):
+    print(texto)

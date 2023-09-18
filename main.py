@@ -26,8 +26,7 @@ def Abrir():
     inputtexto.insert('1.0', str(textoarchivo))
     #Guardar en variable
     VArchivo['ruta'] = rutaarchivo
-    # diccionrarioJson = Sjson.diccionarioJSON(rutaarchivo)
-    # print(diccionrarioJson)
+    
     
 
 def Guardar():
@@ -65,7 +64,10 @@ def Salir():
 
 def Analizar():
     print('analizar')
-    analizador.hola()
+    #Obtener texto input
+    texto = str(inputtexto.get("1.0",END))
+    #Enviar texto al analizador lexico
+    analizador.lexico(texto)
 
 def Errores():
     print('errores')
@@ -77,27 +79,27 @@ def Reporte():
 
 
 
-########################################################################
-aritmetica.suma(5,6)
-aritmetica.resta(3,1)
-aritmetica.multiplicacion(5,5)
-aritmetica.division(15,5)
-aritmetica.potencia(5,2)
-aritmetica.raiz(25,2)
-aritmetica.inverso(5,3)
-aritmetica.seno(45)
-aritmetica.coseno(45)
-aritmetica.tangente(45)
+# ########################################################################
+# aritmetica.suma(5,6)
+# aritmetica.resta(3,1)
+# aritmetica.multiplicacion(5,5)
+# aritmetica.division(15,5)
+# aritmetica.potencia(5,2)
+# aritmetica.raiz(25,2)
+# aritmetica.inverso(5,3)
+# aritmetica.seno(45)
+# aritmetica.coseno(45)
+# aritmetica.tangente(45)
 
-print("\n------------------------")
+# print("\n------------------------")
 ########################################################################
 
-diccionrarioJson = Sjson.diccionarioJSON('test.json')
-listaOperaciones = diccionrarioJson['operaciones']
-print(listaOperaciones[0])
-print(listaOperaciones[0]['operacion'])
-print(listaOperaciones[0]['valor1'])
-print(listaOperaciones[0]['valor2'])
+# diccionrarioJson = Sjson.diccionarioJSON('test.json')
+# listaOperaciones = diccionrarioJson['operaciones']
+# print(listaOperaciones[0])
+# print(listaOperaciones[0]['operacion'])
+# print(listaOperaciones[0]['valor1'])
+# print(listaOperaciones[0]['valor2'])
 
 
 ########################################################################
