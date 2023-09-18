@@ -40,6 +40,17 @@ def Guardar():
 
 def Guardarcomo():
     print('Guardarcomo')
+    rutaarchivo = filedialog.asksaveasfile(defaultextension=".json", filetypes=[("All Files","*.json")])
+    rutaarchivo = rutaarchivo.name
+    #Obtener texto de input
+    texto = str(inputtexto.get("1.0",END))
+    #Guardar
+    archivo = open(rutaarchivo,'w')
+    archivo.write(texto)
+    archivo.close()
+    print('Archivo guardado.')
+    
+    
 
 def Salir():
     print('Salir')
