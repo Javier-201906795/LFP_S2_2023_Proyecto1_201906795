@@ -5,6 +5,10 @@ from tkinter import filedialog
 
 from Operaciones import *
 from Archivojson import *
+from Analizador import *
+
+
+
 
 
 #######################################################################
@@ -61,6 +65,7 @@ def Salir():
 
 def Analizar():
     print('analizar')
+    analizador.hola()
 
 def Errores():
     print('errores')
