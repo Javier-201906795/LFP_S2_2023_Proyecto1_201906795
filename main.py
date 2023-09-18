@@ -1,5 +1,7 @@
 from tkinter import *
 from tkinter.ttk import Combobox
+from tkinter import filedialog
+
 
 from Operaciones import *
 from Archivojson import *
@@ -8,6 +10,11 @@ from Archivojson import *
 #######################################################################
 def Abrir():
     print('abrir')
+    rutaarchivo = filedialog.askopenfilename()
+    print(rutaarchivo)
+    textoarchivo = Sjson.jsonabrirarchivo(rutaarchivo)
+    inputtexto.insert('1.0', str(textoarchivo))
+    
 
 def Guardar():
     print('Guardar')
