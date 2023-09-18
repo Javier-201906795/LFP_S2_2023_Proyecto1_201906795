@@ -9,7 +9,6 @@ from Archivojson import *
 
 def convertiradiccionario(texto):
     try:
-        print('paso aqui1')
         newdiccionario = Sjson.diccionarioJSON(texto)
         #Evaluar si es un error
         mensaje = str(newdiccionario)[2:7]
@@ -18,7 +17,6 @@ def convertiradiccionario(texto):
             x = 1/0
         else:
             #Retornar
-            print('\n',newdiccionario,'\n')
             return newdiccionario
     except Exception:
         print('Error:[analizado.py][CG002] ', Exception)
@@ -28,7 +26,7 @@ def convertiradiccionario(texto):
 def lexico(texto):
     #Convertir texto a diccionario
     diccionario = convertiradiccionario(texto)
-    print('holamundo')
+    print(diccionario)
     
     
     
