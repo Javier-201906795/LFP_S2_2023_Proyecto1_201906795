@@ -17,6 +17,7 @@ def Guardarcomo():
 
 def Salir():
     print('Salir')
+    raiz.destroy()
 
 
 
