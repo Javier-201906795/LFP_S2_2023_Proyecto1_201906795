@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter.ttk import Combobox
 from tkinter import filedialog
+from tkinter import messagebox as MessageBox
 
 
 from Operaciones import *
@@ -69,8 +70,11 @@ def Analizar():
     #Enviar texto al analizador lexico
     analizador.lexico(texto)
 
+    
+
 def Errores():
     print('errores')
+    MessageBox.showinfo("Hola!", "Hola mundo")
 
 def Reporte():
     print('reporte')
