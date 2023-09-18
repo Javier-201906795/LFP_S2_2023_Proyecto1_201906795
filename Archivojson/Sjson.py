@@ -12,9 +12,9 @@ def jsonabrirarchivo(ruta):
                 textoarchivo = archivo.read()
                 return textoarchivo
         except:
-            print("♦ Error: no se pudo abrir el archivo.")
+            print("♦ Error[SJSON.py][CD001]: no se pudo abrir el archivo.")
     else:
-        print("♦ Error: no se pudo abrir el archivo porque no es un archivo JSON.")
+        print("♦ Error[SJSON.py][CD002]: no se pudo abrir el archivo porque no es un archivo JSON.")
 
 
 
@@ -24,7 +24,9 @@ def diccionarioJSON(txtjson):
         datosdiccionario = json.loads(txtjson)
         return datosdiccionario
     except:
-        print("♦ Error: no se pudo convertir en un diccionario el texto proporcionado")
+        errmensaje = "♦ Error[SJSON.py][CD003]: no se pudo convertir en un diccionario el texto proporcionado"
+        print(errmensaje)
+        return ValueError(errmensaje)
 
 
 
