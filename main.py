@@ -48,11 +48,15 @@ listaopcionesarchivo = Combobox(raiz, text='Archivo', values = opcionesarchivo)
 listaopcionesarchivo.place(x=50,y=12, width=130, height= 30)
 listaopcionesarchivo.current(0)
 
-inputtexto = Text(raiz,padx=50)
-# inputtexto.insert(INSERT,'holas')
+inputtexto = Text(raiz,padx=40)
 inputtexto.place(x=80,y=100, width=800, height=350)
 
-labelnumeracion = Label(raiz, pady=2,text=' 1.\n 2.\n 3.\n 4.\n 5.\n 6.\n 7.\n 8.\n 9.\n10.\n11.\n12.\n13.\n14.\n15.\n', font=("Consolas",10), bg="#FFFFFF").place(x=85,y=100)
+labelnumeracion = Label(raiz, pady=0,text=' 1.\n 2.\n 3.\n 4.\n 5.', font=("Consolas",10), bg="#FFFFFF").place(x=85,y=102)
+labelnumeracion = Label(raiz, pady=0,text=' 6.\n 7.\n 8.', font=("Consolas",10), bg="#FFFFFF").place(x=85,y=180)
+labelnumeracion = Label(raiz, pady=0,text=' 9.\n10.\n11.', font=("Consolas",10), bg="#FFFFFF").place(x=85,y=230)
+labelnumeracion = Label(raiz, pady=0,text='12.\n13.\n14.', font=("Consolas",10), bg="#FFFFFF").place(x=85,y=278)
+labelnumeracion = Label(raiz, pady=0,text='15.\n16.\n17.', font=("Consolas",10), bg="#FFFFFF").place(x=85,y=325)
+labelnumeracion = Label(raiz, pady=0,text='18.\n19.\n20.\n21.', font=("Consolas",10), bg="#FFFFFF").place(x=85,y=375)
 
 
 
