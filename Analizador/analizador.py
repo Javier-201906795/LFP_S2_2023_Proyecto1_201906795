@@ -33,13 +33,17 @@ def lexico(texto):
     # print(listaOperaciones)
     
     #Leer Linea por linea
-    linea = 0
-    columna = 0
+    linea = 1
+    columna = 1
     for caracter in texto:
-        columna = columna + 1
+        #Print estado
         print('Ascii: ', ord(caracter), ' Caracter: ', caracter, 'Linea: ', linea, ' Columna: ', columna)
+        #Contador columna
+        columna = columna + 1
+        #Salto de linea
         if ord(caracter) == 10:
             linea = linea + 1
+            columna = 0
 
         
 
