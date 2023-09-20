@@ -32,6 +32,15 @@ def lexico(texto):
     # listaOperaciones = diccionario['operaciones']
     # print(listaOperaciones)
     
-    pass
+    #Leer Linea por linea
+    linea = 0
+    columna = 0
+    for caracter in texto:
+        columna = columna + 1
+        print('Ascii: ', ord(caracter), ' Caracter: ', caracter, 'Linea: ', linea, ' Columna: ', columna)
+        if ord(caracter) == 10:
+            linea = linea + 1
+
+        
 
     
