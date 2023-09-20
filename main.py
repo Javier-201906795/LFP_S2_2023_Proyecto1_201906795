@@ -19,7 +19,9 @@ VArchivo ={'ruta':''}
 
 #######################################################################
 def Abrir():
-    print('abrir')
+    #Limpiar input
+    inputtexto.delete('1.0', 'end')
+    print('abrriendo archivo y cargandolo en input')
     rutaarchivo = filedialog.askopenfilename()
     print(rutaarchivo)
     textoarchivo = Sjson.jsonabrirarchivo(rutaarchivo)
