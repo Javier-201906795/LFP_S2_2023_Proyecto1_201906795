@@ -72,12 +72,12 @@ def obtenertokens(texto):
             #Reporte
             #print('Caracter: ', caracter, ' Linea: ', linea, ' Columna: ',columna)
             #Contador
-            #c += 1
+            c += 1
         elif caracter in listatocaracteresbuscados:
             #Aumenta columna
             columna += 1
             #Contador
-            #c += 1
+            c += 1
             #Almacena token
             print('token: ', caracter, ' linea:', linea,' columna: ',columna)
         elif caracter == '"':
@@ -85,7 +85,7 @@ def obtenertokens(texto):
             textoaevaluar = texto[c+1:]
             string, pos = obtenertexto(textoaevaluar, c)
             #Aumentar contador
-            c = pos + 2
+            c += pos + 2
             #Almacenar token
             print('token: ', string, ' linea:', linea,' columna: ',columna)
         c += 1
