@@ -15,6 +15,7 @@ from Archivojson import *
 tokens = []
 linea = 1
 columna = 1
+listatocaracteresbuscados = ['{','}',':','[',']',',']
 
 ################################################################
 
@@ -41,7 +42,7 @@ def obtenertexto(text, c):
 def obtenertokens(texto):
 
     #Variables Globales
-    global tokens, linea, columna
+    global tokens, linea, columna, listatocaracteresbuscados
     #iterador
     c = 0
     #numero maximo de iteraciones
@@ -70,11 +71,23 @@ def obtenertokens(texto):
                 columna += 1
             #Reporte
             #print('Caracter: ', caracter, ' Linea: ', linea, ' Columna: ',columna)
+            #Contador
+            #c += 1
+        elif caracter in listatocaracteresbuscados:
+            #Aumenta columna
+            columna += 1
+            #Contador
+            #c += 1
+            #Almacena token
+            print('token: ', caracter, ' linea:', linea,' columna: ',columna)
         elif caracter == '"':
             #Si es un texto un posible token
             textoaevaluar = texto[c+1:]
             string, pos = obtenertexto(textoaevaluar, c)
-            print('token: ', string, ' pos: ', pos)
+            #Aumentar contador
+            c = pos + 2
+            #Almacenar token
+            print('token: ', string, ' linea:', linea,' columna: ',columna)
         c += 1
     #Resultados
     print('Iteraciones maxima: ', maxiterc)
