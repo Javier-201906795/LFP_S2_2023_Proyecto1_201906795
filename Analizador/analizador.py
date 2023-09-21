@@ -1,4 +1,5 @@
 import json
+from os import system
 from tkinter import *
 from tkinter import messagebox as MessageBox
 
@@ -28,6 +29,9 @@ def lexico(texto):
             linea = linea + 1
             columna = 0
 
-        
+
+def graphviz():
+    #Crear imagen Graphviz
+    system('dot -Tpng archivo.dot -o archivograph1.png')     
 
     

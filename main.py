@@ -80,6 +80,7 @@ def Errores():
 
 def Reporte():
     print('reporte')
+    analizador.graphviz()
 
 
 

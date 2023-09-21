@@ -1,0 +1,10 @@
+digraph L{
+    node[shape=box fillcolor="FFEDBB"]
+
+    subgraph cluster_p{
+        label = "Matriz Dispersa1"
+        bgcolor = "#398D9C"
+        raiz[label = "0,0"]
+        edge[dir = "both"]
+    }
+}
