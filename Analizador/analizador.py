@@ -37,6 +37,23 @@ def obtenertexto(text, a):
 
 
 
+def obtenernumero(texto, a):
+    numero = ""
+    isDecimal = False
+    for newcaracter in texto:
+        if newcaracter.isdigit():
+            numero += newcaracter
+            a += 1
+        elif newcaracter == "." and not isDecimal:
+            numero += newcaracter
+            a += 1
+            isDecimal = True
+        else:
+            break
+    if isDecimal:
+        return [float(numero), a]
+    return [int(numero), a]
+
 
 ################################################################
 def obtenertokens(texto):
@@ -92,9 +109,16 @@ def obtenertokens(texto):
             #Almacenar token
             print('token: ', string, ' linea:', linea,' columna: ',columna)
         elif caracter.isdigit():
+            
+            #Obtener numero
+            textoaevaluar = texto[c:]
+            numero, pos = obtenernumero(textoaevaluar, c)
             #Aumentar contador y columna
-            c += 1
-            columna += 1
+            c = pos
+            txtnumero = str(numero) 
+            columna += len(txtnumero) + 1
+            #Almacenar token
+            print('token: ', numero, ' linea:', linea,' columna: ',columna)
         else:
             #Aumentar contador y columna
             c += 1
