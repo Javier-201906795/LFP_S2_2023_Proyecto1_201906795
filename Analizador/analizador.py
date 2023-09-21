@@ -10,24 +10,49 @@ from Archivojson import *
 
 #         MessageBox.showerror('Error:[analizado.py][CG002]','No se pudo convertir un diccionario revise el texto introducido')
 
+################################################################
+#Variables Globales
+tokens = []
+linea = 1
+columna = 1
 
+
+
+
+
+
+################################################################
+def obtenertokens(texto):
+
+    #Variables Globales
+    global tokens, linea, columna
+    #iterador
+    c = 0
+    #numero maximo de iteraciones
+    maxiterc = len(texto)
+    #Ciclo de iteraciones para evaluar y obtener tokens
+    while c < maxiterc:
+        #Obtener caracter
+        caracter = texto[c]
+        
+
+
+        c += 1
+    #Resultados
+    print('Iteraciones maxima: ', maxiterc)
+
+
+
+
+
+
+
+################################################################
 def lexico(texto):
 
-
-   
+    #Obtener Tokens
+    obtenertokens(texto)
     
-    #Leer Linea por linea
-    linea = 1
-    columna = 1
-    for caracter in texto:
-        #Print estado
-        print('Ascii: ', ord(caracter), ' Caracter: ', caracter, 'Linea: ', linea, ' Columna: ', columna)
-        #Contador columna
-        columna = columna + 1
-        #Salto de linea
-        if ord(caracter) == 10:
-            linea = linea + 1
-            columna = 0
 
 
 def graphviz():
