@@ -16,6 +16,7 @@ tokens = []
 linea = 1
 columna = 1
 listatocaracteresbuscados = ['{','}',':','[',']',',']
+listaoperacionescon1valor = ['seno','coseno','tangente','inverso']
 listaerrores = []
 listainstrucciones = []
 
@@ -217,7 +218,7 @@ def obtener_instruccion():
             #Operacion con dos Valores
             print('\n\noperacion:', operacion, '|valor1:', valor1, '|valor2:', valor2)
             return [operacion,valor1,valor2]
-        if operacion and operacion in ['seno','coseno','tangente'] and valor1:
+        if operacion and operacion in listaoperacionescon1valor and valor1:
             return [operacion,valor1,None]
 
 
