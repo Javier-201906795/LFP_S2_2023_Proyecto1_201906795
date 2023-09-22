@@ -150,20 +150,7 @@ def obtenertokens(texto):
     #Evaluar token y formar instrucciones
     formar_instrucciones()
 
-################################################################
-def lexico(texto):
 
-    global tokens, listaerrores, linea, columna, listainstrucciones
-    #Reiniciar valores
-    linea = 1
-    columna = 1
-    tokens = []
-    listaerrores = []
-    listainstrucciones = []
-    
-
-    #Obtener Tokens
-    obtenertokens(texto)
     
 ################################################################
 def obtener_instruccion():
@@ -223,7 +210,20 @@ def formar_instrucciones():
     print(listainstrucciones,'\n')
 
 
+################################################################
+def lexico(texto):
 
+    global tokens, listaerrores, linea, columna, listainstrucciones
+    #Reiniciar valores
+    linea = 1
+    columna = 1
+    tokens = []
+    listaerrores = []
+    listainstrucciones = []
+    
+
+    #Obtener Tokens
+    obtenertokens(texto)
     
 
 
