@@ -60,4 +60,7 @@ def tangente(num):
     print('• Tangente: tan(',num,'°) = ', nuevoformato)
     return restangente
 
-
+def mod(num1, num2):
+    newmod = float(num1) + float(num2)
+    print('• mod: ',num1,' y ',num2,' = ', newmod)
+    return newmod

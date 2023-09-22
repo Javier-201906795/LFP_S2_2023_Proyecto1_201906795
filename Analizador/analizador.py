@@ -298,11 +298,12 @@ def evaluar_tipo_operacion(operacion, valor1, valor2):
         resultado = aritmetica.coseno(valor1)
     elif operacion == 'tangente':
         resultado = aritmetica.tangente(valor1)
+    elif operacion == 'mod':
+        resultado = aritmetica.mod(valor1,valor2)
+    else:
+        resultado = -1
     
-
-
-
-    
+    #Envia el resultado    
     print('operar: ', operacion, '|valor1:',valor1,'|valor2:',valor2,'|Resultado:',resultado), 
     return resultado
 
