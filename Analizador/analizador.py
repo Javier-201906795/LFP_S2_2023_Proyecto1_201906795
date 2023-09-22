@@ -188,13 +188,21 @@ def obtener_instruccion():
             if valor2 == '[':
                 valor2 = obtener_instruccion()
         elif token == 'texto':
-            #Configuraciones texto
-            #Eliminar el siguiente token : (dos puntos) o , (coma)
             tokens.pop(0)
             texto = tokens.pop(0)
             configuraciones['texto']=texto
-        #Evaluar si es una operacion de un valor o dos
+        elif token =='fondo':
+            tokens.pop(0)
+            configuraciones['fondo'] = tokens.pop(0)
+        elif token == 'fuente':
+            tokens.pop(0)
+            configuraciones['fuente'] = tokens.pop(0)
+        elif token == 'forma':
+            tokens.pop(0)
+            configuraciones['forma'] = tokens.pop(0)
+
         if operacion and valor1 and valor2:
+            #Evaluar si es una operacion de un valor o dos
             #Operacion con dos Valores
             print('\n\noperacion:', operacion, '|valor1:', valor1, '|valor2:', valor2)
             return [operacion,valor1,valor2]
