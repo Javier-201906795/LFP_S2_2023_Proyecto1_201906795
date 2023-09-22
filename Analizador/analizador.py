@@ -239,13 +239,7 @@ def interpretar_instruccion(operacion, valor1, valor2):
             valor2 = instruccion[2]
         print('\n###### [ Instruccion ] #######')
         print(operacion, valor1, valor2)
-        #Intentar Resolver
-        if esunnumero(valor1) and esunnumero(valor2):
-            #Operar
-            resultado = valor1 + valor2
-            print('\n###### [ Resultado ] #######')
-            print(resultado)
-            return resultado
+        
         #Hay operaciones adentro del valor
         if esunnumero(valor1) == False:
             operacion = valor1[0]
@@ -257,23 +251,34 @@ def interpretar_instruccion(operacion, valor1, valor2):
             valor1 = valor2[1]
             valor2 = valor2[2]
             valor2 = interpretar_instruccion(operacion,valor1,valor2)
-            
+        #Intentar Resolver
+        if esunnumero(valor1) and esunnumero(valor2):
+            #Operar
+            resultado = valor1 + valor2
+            # print('\n###### [ Resultado ] #######')
+            # print(resultado)
+            return resultado   
         
         # if operacion and valor1 and valor2:
         #     return operacion, valor1, valor2
 
 
 ################################################################
-
+#Inicia
 def realizar_instruccion():
     # interpretar_instruccion()
     while listainstrucciones:
-        operacion = None
-        valor1 = None
-        valor2 = None
-        newinstruccion = interpretar_instruccion(operacion,valor1,valor2)
-        print('\n###### [ Realizar instruccion ] #######')
-        print(newinstruccion)
+        # operacion = None
+        # valor1 = None
+        # valor2 = None
+        # resultado = interpretar_instruccion(operacion,valor1,valor2)
+        # print('\n###### [ Resultado2 ] #######')
+        # print(resultado)
+        pass
+
+################################################################
+
+
 
 ################################################################
 def lexico(texto):
