@@ -69,8 +69,9 @@ def Analizar():
     print('analizar')
     #Obtener texto input
     texto = str(inputtexto.get("1.0",END))
-    #Enviar texto al analizador lexico
+    #Enviar texto al analizador lexico y obtiene tokens
     analizador.lexico(texto)
+    
 
     
 

@@ -145,7 +145,8 @@ def obtenertokens(texto):
         print(listaerrores[0][1])
         print(listaerrores[0][2])
 
-
+    #Evaluar token y formar instrucciones
+    obtener_instrucciones()
 
 
 
@@ -165,6 +166,23 @@ def lexico(texto):
     #Obtener Tokens
     obtenertokens(texto)
     
+################################################################
+def obtener_instrucciones():
+    global tokens
+    operacion = ''
+    valor1 = ''
+    valor2 = ''
+    #Recorrer valores
+    while tokens:
+        token = tokens.pop(0)
+        print('Token: ', token)
+        if token == 'operacion':
+            #Eliminar el siguiente token : (dos puntos)
+            tokens.pop(0)
+            #Almacena el tipo de operacion
+            operacion = tokens.pop(0)
+        
+    pass
 
 
 def graphviz():
