@@ -230,11 +230,13 @@ def interpretar_instruccion(operacion, valor1, valor2):
     
     resultado = None
     while listainstrucciones:
-        instruccion = listainstrucciones.pop(0)
+        
         #Obtener Valores
-        operacion = instruccion[0]
-        valor1 = instruccion[1]
-        valor2 = instruccion[2]
+        if operacion == None and valor1 == None and valor2 == None:
+            instruccion = listainstrucciones.pop(0)
+            operacion = instruccion[0]
+            valor1 = instruccion[1]
+            valor2 = instruccion[2]
         print('\n###### [ Instruccion ] #######')
         print(operacion, valor1, valor2)
         #Intentar Resolver
@@ -246,12 +248,15 @@ def interpretar_instruccion(operacion, valor1, valor2):
             return resultado
         #Hay operaciones adentro del valor
         if esunnumero(valor1) == False:
-            operacion = None
-            valor1 = None
-            valor2 = None
-            valor1 = interpretar_instruccion()
+            operacion = valor1[0]
+            valor1 = valor1[1]
+            valor2 = valor1[2]
+            valor1 = interpretar_instruccion(operacion,valor1,valor2)
         if esunnumero(valor2) == False:
-            valor2 = interpretar_instruccion()
+            operacion = valor2[0]
+            valor1 = valor2[1]
+            valor2 = valor2[2]
+            valor2 = interpretar_instruccion(operacion,valor1,valor2)
             
         
         # if operacion and valor1 and valor2:
