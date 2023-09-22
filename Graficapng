@@ -1,0 +1,10 @@
+digraph Grafica {
+	rankdir=LR size="8,5"
+	node [shape=doublecircle]
+	x1 [label=10]
+	x2 [label=25]
+	x3 [label="suma
+35"]
+	x3 -> x1
+	x3 -> x2
+}

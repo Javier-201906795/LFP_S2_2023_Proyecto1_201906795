@@ -2,6 +2,8 @@ import json
 from os import system
 from tkinter import *
 from tkinter import messagebox as MessageBox
+from graphviz import *
+from graphviz import Digraph
 
 
 from Archivojson import *
@@ -382,6 +384,27 @@ def lexico(texto):
 
 def graphviz():
     #Crear imagen Graphviz
-    system('dot -Tpng archivo.dot -o archivograph1.png')     
+    #system('dot -Tpng archivo.dot -o archivograph1.png')
+
+
+    # dot = Digraph('AFD', filename='AFDPrueba', format='png')
+    # dot.attr(rankdir='LR', size='8,5')
+    # dot.attr('node', shape='doublecircle')
+    # dot.node('C')
+    # dot.attr('node', shape='circle')
+    # dot.node('A')
+    # dot.edge('A', 'C', label='1') # A,1;B
+    # dot.render('AFDPrueba', view=False)
+
+    dot = Digraph('Grafica',filename='Grafica1', format='png')
+    dot.attr(rankdir='LR', size='8,5')
+    dot.attr('node', shape='circle')
+    dot.node('x1','10')
+    dot.node('x2','25')
+    dot.node('x3','suma\n35')
+    dot.edge('x3','x1')
+    dot.edge('x3','x2')
+    dot.render('Graficapng', view=True)
+
 
     
