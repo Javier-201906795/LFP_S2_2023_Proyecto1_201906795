@@ -21,6 +21,7 @@ listaerrores = []
 listainstrucciones = []
 contadorinstrucciones = 0
 listaresultados = []
+configuraciones = {'texto':'Operaciones', 'fondo':'white','fuente':'arial', 'forma':'circle'}
 
 ################################################################
 
@@ -156,7 +157,7 @@ def obtenertokens(texto):
     
 ################################################################
 def obtener_instruccion():
-    global tokens
+    global tokens, configuraciones
     operacion = ''
     valor1 = ''
     valor2 = ''
@@ -186,7 +187,12 @@ def obtener_instruccion():
             #Evaluea si no hay mas instrucciones adentro del valor2
             if valor2 == '[':
                 valor2 = obtener_instruccion()
-
+        elif token == 'texto':
+            #Configuraciones texto
+            #Eliminar el siguiente token : (dos puntos) o , (coma)
+            tokens.pop(0)
+            texto = tokens.pop(0)
+            configuraciones['texto']=texto
         #Evaluar si es una operacion de un valor o dos
         if operacion and valor1 and valor2:
             #Operacion con dos Valores
@@ -332,7 +338,7 @@ def realizar_instruccion():
 ################################################################
 def lexico(texto):
 
-    global tokens, listaerrores, linea, columna, listainstrucciones, contadorinstrucciones, listaresultados
+    global tokens, listaerrores, linea, columna, listainstrucciones, contadorinstrucciones, listaresultados, configuraciones
     #Reiniciar valores
     # linea = 1
     # columna = 1
@@ -348,6 +354,7 @@ def lexico(texto):
     listainstrucciones = []
     contadorinstrucciones = 0
     listaresultados = []
+    configuraciones = {'texto':'operaciones2', 'fondo':'white','fuente':'arial', 'forma':'circle'}
     
 
     #Obtener Tokens -> tokens
@@ -365,10 +372,12 @@ def lexico(texto):
         a+=1
         print(a,')',i)
 
-    #Lista Errores 
     print('\n||||||| [ LISTA DE ERRORES ] |||||||')
     for i in listaerrores:
         print(i)
+
+    print('\n||||||| [ CONFIGURACIONES ] |||||||')
+    print(configuraciones)
 
 def graphviz():
     #Crear imagen Graphviz
