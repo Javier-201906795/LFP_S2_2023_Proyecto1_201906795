@@ -237,8 +237,8 @@ def interpretar_instruccion(operacion, valor1, valor2):
             operacion = instruccion[0]
             valor1 = instruccion[1]
             valor2 = instruccion[2]
-        print('\n###### [ Instruccion ] #######')
-        print(operacion, valor1, valor2)
+            print('\n###### [ Instruccion ] #######')
+            print(operacion, valor1, valor2)
         
         #Hay operaciones adentro del valor
         if esunnumero(valor1) == False:
@@ -266,18 +266,17 @@ def interpretar_instruccion(operacion, valor1, valor2):
 ################################################################
 #Inicia
 def realizar_instruccion():
-    # interpretar_instruccion()
+    global listainstrucciones
+    # # interpretar_instruccion()
+    a = 0
     while listainstrucciones:
-        # operacion = None
-        # valor1 = None
-        # valor2 = None
-        # resultado = interpretar_instruccion(operacion,valor1,valor2)
-        # print('\n###### [ Resultado2 ] #######')
-        # print(resultado)
-        pass
-
-################################################################
-
+        a += 1
+        operacion = None
+        valor1 = None
+        valor2 = None
+        resultado = interpretar_instruccion(operacion,valor1,valor2)
+        print(a,'Resultado:', resultado)
+        
 
 
 ################################################################
