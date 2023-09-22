@@ -262,8 +262,8 @@ def interpretar_instruccion(operacion, valor1, valor2):
             newvalor1 = valor2[1]
             newvalor2 = valor2[2]
             valor2 = interpretar_instruccion(newoperacion,newvalor1,newvalor2)
-        #Intentar Resolver
         if esunnumero(valor1) and esunnumero(valor2):
+            #Intentar Resolver
             #Operar
             resultado = evaluar_tipo_operacion(operacion,valor1,valor2)
             return resultado   
@@ -340,13 +340,6 @@ def lexico(texto):
 
     global tokens, listaerrores, linea, columna, listainstrucciones, contadorinstrucciones, listaresultados, configuraciones
     #Reiniciar valores
-    # linea = 1
-    # columna = 1
-    # tokens = []
-    # listaerrores = []
-    # listainstrucciones = []
-    # contadorinstrucciones = 0
-
     tokens = []
     linea = 1
     columna = 1
