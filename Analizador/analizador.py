@@ -255,12 +255,8 @@ def interpretar_instruccion(operacion, valor1, valor2):
         if esunnumero(valor1) and esunnumero(valor2):
             #Operar
             resultado = valor1 + valor2
-            # print('\n###### [ Resultado ] #######')
-            # print(resultado)
             return resultado   
         
-        # if operacion and valor1 and valor2:
-        #     return operacion, valor1, valor2
 
 
 ################################################################
