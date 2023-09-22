@@ -241,22 +241,27 @@ def interpretar_instruccion(operacion, valor1, valor2):
             valor1 = instruccion[1]
             valor2 = instruccion[2]
             print('\n###### [ Instruccion ] #######')
-            print(operacion, valor1, valor2)
+            print(operacion,'|', valor1,'|', valor2,'|')
             print('-----------------------------------')
         
         #Hay operaciones adentro del valor
         if esunnumero(valor1) == False:
-            operacion = valor1[0]
-            valor1 = valor1[1]
-            valor2 = valor1[2]
-            valor1 = interpretar_instruccion(operacion,valor1,valor2)
-        if esunnumero(valor2) == False:
+            anewoperacion = valor1[0]
+            anewvalor1 = valor1[1]
+            anewvalor2 = valor1[2]
+            valor1 = interpretar_instruccion(anewoperacion,anewvalor1,anewvalor2)
+        if esunnumero(valor2) == False and valor2!=None:
             newoperacion = valor2[0]
             newvalor1 = valor2[1]
             newvalor2 = valor2[2]
             valor2 = interpretar_instruccion(newoperacion,newvalor1,newvalor2)
         #Intentar Resolver
         if esunnumero(valor1) and esunnumero(valor2):
+            #Operar
+            resultado = evaluar_tipo_operacion(operacion,valor1,valor2)
+            return resultado   
+        if esunnumero(valor1) and valor2 == None:
+            #Es un elemento de un valor
             #Operar
             resultado = evaluar_tipo_operacion(operacion,valor1,valor2)
             return resultado   
