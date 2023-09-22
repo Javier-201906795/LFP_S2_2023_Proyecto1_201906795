@@ -149,21 +149,6 @@ def obtenertokens(texto):
 
     #Evaluar token y formar instrucciones
     formar_instrucciones()
-    
-
-################################################################
-def formar_instrucciones():
-    global tokens, listainstrucciones
-
-    while tokens:
-        instruccion = obtener_instruccion()
-        if instruccion:
-            #Añadir nueva instruccion
-            listainstrucciones.append(instruccion)
-    
-    print('\n###### [ Lista instrucciones ] #####')
-    print(listainstrucciones,'\n')
-
 
 ################################################################
 def lexico(texto):
@@ -220,6 +205,23 @@ def obtener_instruccion():
             return [operacion,valor1,valor2]
         if operacion and operacion in listaoperacionescon1valor and valor1:
             return [operacion,valor1,None]
+
+
+    
+
+################################################################
+def formar_instrucciones():
+    global tokens, listainstrucciones
+
+    while tokens:
+        instruccion = obtener_instruccion()
+        if instruccion:
+            #Añadir nueva instruccion
+            listainstrucciones.append(instruccion)
+    
+    print('\n###### [ Lista instrucciones ] #####')
+    print(listainstrucciones,'\n')
+
 
 
     
