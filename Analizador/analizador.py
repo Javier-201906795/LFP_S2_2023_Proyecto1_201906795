@@ -181,8 +181,28 @@ def obtener_instrucciones():
             tokens.pop(0)
             #Almacena el tipo de operacion
             operacion = tokens.pop(0)
-        
-    pass
+        elif token == 'valor1':
+            #Eliminar el siguiente token : (dos puntos)
+            tokens.pop(0)
+            #Obtine el valor 1
+            valor1 = tokens.pop(0)
+            #Evaluea si no hay mas instrucciones adentro del valor1
+            if valor1 == '[':
+                valor1 = obtener_instrucciones()
+        elif token == 'valor2':
+            #Eliminar el siguiente token : (dos puntos)
+            tokens.pop(0)
+            #Obtine el valor 2
+            valor2 = tokens.pop(0)
+            #Evaluea si no hay mas instrucciones adentro del valor2
+            if valor2 == '[':
+                valor2 = obtener_instrucciones()
+
+        if operacion and valor1 and valor2:
+            print('\n\noperacion: ', operacion, 'valor1: ', valor1, 'valor2: ', valor2)
+            return [operacion,valor1,valor2]
+
+    
 
 
 def graphviz():
