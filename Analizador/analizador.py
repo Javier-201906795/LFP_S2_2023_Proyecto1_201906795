@@ -206,8 +206,10 @@ def formar_instrucciones():
             #Añadir nueva instruccion
             listainstrucciones.append(instruccion)
     
+    print('#######################################')
     print('\n###### [ Lista instrucciones ] #####')
     print(listainstrucciones,'\n')
+    print('#######################################\n')
 
 
 ################################################################
