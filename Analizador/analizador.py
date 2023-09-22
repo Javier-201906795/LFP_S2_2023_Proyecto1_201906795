@@ -19,6 +19,7 @@ listatocaracteresbuscados = ['{','}',':','[',']',',']
 listaoperacionescon1valor = ['seno','coseno','tangente','inverso']
 listaerrores = []
 listainstrucciones = []
+contadorinstrucciones = 0
 
 ################################################################
 
@@ -147,8 +148,7 @@ def obtenertokens(texto):
         print(listaerrores[0][1])
         print(listaerrores[0][2])
 
-    #Evaluar token y formar instrucciones
-    formar_instrucciones()
+    
 
 
     
@@ -211,20 +211,87 @@ def formar_instrucciones():
 
 
 ################################################################
+
+def esunnumero(posiblenumero):
+    try:
+        int(posiblenumero)
+        return True
+    except:
+        try:
+            float(posiblenumero)
+            return True
+        except:
+            return False
+
+################################################################
+
+def interpretar_instruccion(operacion, valor1, valor2):
+    global listainstrucciones
+    
+    resultado = None
+    while listainstrucciones:
+        instruccion = listainstrucciones.pop(0)
+        #Obtener Valores
+        operacion = instruccion[0]
+        valor1 = instruccion[1]
+        valor2 = instruccion[2]
+        print('\n###### [ Instruccion ] #######')
+        print(operacion, valor1, valor2)
+        #Intentar Resolver
+        if esunnumero(valor1) and esunnumero(valor2):
+            #Operar
+            resultado = valor1 + valor2
+            print('\n###### [ Resultado ] #######')
+            print(resultado)
+            return resultado
+        #Hay operaciones adentro del valor
+        if esunnumero(valor1) == False:
+            operacion = None
+            valor1 = None
+            valor2 = None
+            valor1 = interpretar_instruccion()
+        if esunnumero(valor2) == False:
+            valor2 = interpretar_instruccion()
+            
+        
+        # if operacion and valor1 and valor2:
+        #     return operacion, valor1, valor2
+
+
+################################################################
+
+def realizar_instruccion():
+    # interpretar_instruccion()
+    while listainstrucciones:
+        operacion = None
+        valor1 = None
+        valor2 = None
+        newinstruccion = interpretar_instruccion(operacion,valor1,valor2)
+        print('\n###### [ Realizar instruccion ] #######')
+        print(newinstruccion)
+
+################################################################
 def lexico(texto):
 
-    global tokens, listaerrores, linea, columna, listainstrucciones
+    global tokens, listaerrores, linea, columna, listainstrucciones, contadorinstrucciones
     #Reiniciar valores
     linea = 1
     columna = 1
     tokens = []
     listaerrores = []
     listainstrucciones = []
+    contadorinstrucciones = 0
     
 
-    #Obtener Tokens
+    #Obtener Tokens -> tokens
     obtenertokens(texto)
-    
+
+    #Evaluar token y formar instrucciones -> listainstrucciones
+    formar_instrucciones()
+
+    #Interpretar instrucciones
+    realizar_instruccion()
+
 
 
 def graphviz():
