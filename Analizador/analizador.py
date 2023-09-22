@@ -16,6 +16,7 @@ tokens = []
 linea = 1
 columna = 1
 listatocaracteresbuscados = ['{','}',':','[',']',',']
+listaerrores = []
 
 ################################################################
 
@@ -98,6 +99,7 @@ def obtenertokens(texto):
             #Contador
             c += 1
             #Almacena token
+            tokens.append(caracter)
             print('token: ', caracter, ' linea:', linea,' columna: ',columna)
         elif caracter == '"':
             #Si es un texto un posible token
@@ -107,9 +109,9 @@ def obtenertokens(texto):
             c = pos + 2
             columna = len(string) + 1
             #Almacenar token
+            tokens.append(string)
             print('token: ', string, ' linea:', linea,' columna: ',columna)
         elif caracter.isdigit():
-            
             #Obtener numero
             textoaevaluar = texto[c:]
             numero, pos = obtenernumero(textoaevaluar, c)
@@ -118,6 +120,7 @@ def obtenertokens(texto):
             txtnumero = str(numero) 
             columna += len(txtnumero) + 1
             #Almacenar token
+            tokens.append(numero)
             print('token: ', numero, ' linea:', linea,' columna: ',columna)
         else:
             #Aumentar contador y columna
@@ -125,10 +128,22 @@ def obtenertokens(texto):
             columna += 1
             #Caracter Desconocido
             print("\033[1;31;40m Error: caracter desconocido:", caracter," |Linea:",linea," |Columna:",columna,"\033[0m")
-
+            #Almacenar error
+            error = [caracter, linea, columna]
+            listaerrores.append(error)
         
     #Resultados
+    print('\n')
     print('Iteraciones maxima: ', maxiterc)
+    print(tokens)
+    print('Tokens: ', len(tokens))
+    print(listaerrores)
+    print('Numero de Errores: ', len(listaerrores))
+    if (len(listaerrores) > 0):
+        print(listaerrores[0])
+        print(listaerrores[0][0])
+        print(listaerrores[0][1])
+        print(listaerrores[0][2])
 
 
 
@@ -138,6 +153,14 @@ def obtenertokens(texto):
 
 ################################################################
 def lexico(texto):
+
+    global tokens, listaerrores, linea, columna
+    #Reiniciar valores
+    linea = 1
+    columna = 1
+    tokens = []
+    listaerrores = []
+    
 
     #Obtener Tokens
     obtenertokens(texto)
