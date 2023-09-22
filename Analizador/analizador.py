@@ -5,7 +5,7 @@ from tkinter import messagebox as MessageBox
 
 
 from Archivojson import *
-
+from Operaciones import *
 
 
 #         MessageBox.showerror('Error:[analizado.py][CG002]','No se pudo convertir un diccionario revise el texto introducido')
@@ -20,6 +20,7 @@ listaoperacionescon1valor = ['seno','coseno','tangente','inverso']
 listaerrores = []
 listainstrucciones = []
 contadorinstrucciones = 0
+listaresultados = []
 
 ################################################################
 
@@ -241,6 +242,7 @@ def interpretar_instruccion(operacion, valor1, valor2):
             valor2 = instruccion[2]
             print('\n###### [ Instruccion ] #######')
             print(operacion, valor1, valor2)
+            print('-----------------------------------')
         
         #Hay operaciones adentro del valor
         if esunnumero(valor1) == False:
@@ -256,15 +258,60 @@ def interpretar_instruccion(operacion, valor1, valor2):
         #Intentar Resolver
         if esunnumero(valor1) and esunnumero(valor2):
             #Operar
-            resultado = valor1 + valor2
+            resultado = evaluar_tipo_operacion(operacion,valor1,valor2)
             return resultado   
-        
+
+################################################################    
+def evaluar_tipo_operacion(operacion, valor1, valor2):
+    # aritmetica.suma(5,6)
+    # aritmetica.resta(3,1)
+    # aritmetica.multiplicacion(5,5)
+    # aritmetica.division(15,5)
+    # aritmetica.potencia(5,2)
+    # aritmetica.raiz(25,2)
+    # aritmetica.inverso(5,3)
+    # aritmetica.seno(45)
+    # aritmetica.coseno(45)
+    # aritmetica.tangente(45)
+
+    #Convertir texto a minusculas
+    operacion = operacion.lower()
+
+    #Evaluar
+    if operacion == 'suma':
+        resultado = aritmetica.suma(valor1,valor2)
+    elif operacion == 'resta':
+        resultado = aritmetica.resta(valor1,valor2)
+    elif operacion == 'multiplicacion':
+        resultado = aritmetica.multiplicacion(valor1,valor2)
+    elif operacion == 'division':
+        resultado = aritmetica.division(valor1,valor2)
+    elif operacion == 'potencia':
+        resultado = aritmetica.potencia(valor1,valor2)
+    elif operacion == 'raiz':
+        resultado = aritmetica.raiz(valor1,valor2)
+    elif operacion == 'inverso':
+        resultado = aritmetica.inverso(valor1)
+    elif operacion == 'seno':
+        resultado = aritmetica.seno(valor1)
+    elif operacion == 'coseno':
+        resultado = aritmetica.coseno(valor1)
+    elif operacion == 'tangente':
+        resultado = aritmetica.tangente(valor1)
+    
+
+
+
+    
+    print('operar: ', operacion, '|valor1:',valor1,'|valor2:',valor2,'|Resultado:',resultado), 
+    return resultado
+
 
 
 ################################################################
 #Inicia
 def realizar_instruccion():
-    global listainstrucciones
+    global listainstrucciones, listaresultados
     # # interpretar_instruccion()
     a = 0
     while listainstrucciones:
@@ -273,8 +320,14 @@ def realizar_instruccion():
         valor1 = None
         valor2 = None
         resultado = interpretar_instruccion(operacion,valor1,valor2)
-        print(a,'Resultado:', resultado)
-        
+        #Almacenar resultado
+        listaresultados.append(resultado)
+        print('♦♦ ',a,'Resultado:', resultado)
+        print('-----------------------------------\n')
+    
+    print('Lista Resultados',listaresultados)
+################################################################
+
 
 
 ################################################################
