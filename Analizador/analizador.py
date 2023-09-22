@@ -133,22 +133,23 @@ def obtenertokens(texto):
             #Caracter Desconocido
             print("\033[1;31;40m Error: caracter desconocido:", caracter," |Linea:",linea," |Columna:",columna,"\033[0m")
             #Almacenar error
-            error = [caracter, linea, columna]
+            error = [caracter, linea, columna,'error lexico']
             listaerrores.append(error)
         
     #Resultados
     print('\n')
     print('Iteraciones maxima: ', maxiterc)
-    print(tokens)
+    
     print('Tokens: ', len(tokens))
+    print('\n---- [ Lista Tokens ] ----')
+    print(tokens)
+    
+    
+    print('\nNumero de Errores: ', len(listaerrores), '\n')
+    print('\n○○○○○○ [ Lista Errores ] ○○○○○○')
     print(listaerrores)
-    print('Numero de Errores: ', len(listaerrores))
-    if (len(listaerrores) > 0):
-        print(listaerrores[0])
-        print(listaerrores[0][0])
-        print(listaerrores[0][1])
-        print(listaerrores[0][2])
-
+    
+    
     
 
 
@@ -268,7 +269,7 @@ def interpretar_instruccion(operacion, valor1, valor2):
 
 ################################################################    
 def evaluar_tipo_operacion(operacion, valor1, valor2):
-
+    global listaerrores
     #Convertir texto a minusculas
     operacion = operacion.lower()
 
@@ -296,7 +297,9 @@ def evaluar_tipo_operacion(operacion, valor1, valor2):
     elif operacion == 'mod':
         resultado = aritmetica.mod(valor1,valor2)
     else:
-        resultado = -1
+        error = [operacion, None, None,'error token desconocido']
+        listaerrores.append(error)
+        resultado = -999
     
     #Envia el resultado    
     print('operar: ', operacion, '|valor1:',valor1,'|valor2:',valor2,'|Resultado:',resultado), 
@@ -321,7 +324,7 @@ def realizar_instruccion():
         print('♦♦ ',a,'Resultado:', resultado)
         print('-----------------------------------\n')
     
-    print('Lista Resultados',listaresultados)
+    
 ################################################################
 
 
@@ -329,14 +332,22 @@ def realizar_instruccion():
 ################################################################
 def lexico(texto):
 
-    global tokens, listaerrores, linea, columna, listainstrucciones, contadorinstrucciones
+    global tokens, listaerrores, linea, columna, listainstrucciones, contadorinstrucciones, listaresultados
     #Reiniciar valores
+    # linea = 1
+    # columna = 1
+    # tokens = []
+    # listaerrores = []
+    # listainstrucciones = []
+    # contadorinstrucciones = 0
+
+    tokens = []
     linea = 1
     columna = 1
-    tokens = []
     listaerrores = []
     listainstrucciones = []
     contadorinstrucciones = 0
+    listaresultados = []
     
 
     #Obtener Tokens -> tokens
@@ -348,7 +359,16 @@ def lexico(texto):
     #Interpretar instrucciones
     realizar_instruccion()
 
+    print('\n||||||| [ LISTA DE RESULTADOS ] |||||||')
+    a = 0
+    for i in listaresultados:
+        a+=1
+        print(a,')',i)
 
+    #Lista Errores 
+    print('\n||||||| [ LISTA DE ERRORES ] |||||||')
+    for i in listaerrores:
+        print(i)
 
 def graphviz():
     #Crear imagen Graphviz
