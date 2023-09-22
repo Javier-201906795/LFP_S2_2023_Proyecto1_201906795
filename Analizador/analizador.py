@@ -247,10 +247,10 @@ def interpretar_instruccion(operacion, valor1, valor2):
             valor2 = valor1[2]
             valor1 = interpretar_instruccion(operacion,valor1,valor2)
         if esunnumero(valor2) == False:
-            operacion = valor2[0]
-            valor1 = valor2[1]
-            valor2 = valor2[2]
-            valor2 = interpretar_instruccion(operacion,valor1,valor2)
+            newoperacion = valor2[0]
+            newvalor1 = valor2[1]
+            newvalor2 = valor2[2]
+            valor2 = interpretar_instruccion(newoperacion,newvalor1,newvalor2)
         #Intentar Resolver
         if esunnumero(valor1) and esunnumero(valor2):
             #Operar
