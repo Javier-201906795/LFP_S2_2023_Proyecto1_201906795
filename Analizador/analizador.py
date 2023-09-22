@@ -17,6 +17,7 @@ linea = 1
 columna = 1
 listatocaracteresbuscados = ['{','}',':','[',']',',']
 listaerrores = []
+listainstrucciones = []
 
 ################################################################
 
@@ -36,7 +37,7 @@ def obtenertexto(text, a):
         a += 1
     print("Error: No se encontraron comillas doble que cerraran el texto.")
 
-
+################################################################
 
 def obtenernumero(texto, a):
     numero = ""
@@ -146,28 +147,40 @@ def obtenertokens(texto):
         print(listaerrores[0][2])
 
     #Evaluar token y formar instrucciones
-    obtener_instrucciones()
+    formar_instrucciones()
+    
 
+################################################################
+def formar_instrucciones():
+    global tokens, listainstrucciones
 
-
+    while tokens:
+        instruccion = obtener_instruccion()
+        if instruccion:
+            #Añadir nueva instruccion
+            listainstrucciones.append(instruccion)
+    
+    print('\n###### [ Lista instrucciones ] #####')
+    print(listainstrucciones,'\n')
 
 
 ################################################################
 def lexico(texto):
 
-    global tokens, listaerrores, linea, columna
+    global tokens, listaerrores, linea, columna, listainstrucciones
     #Reiniciar valores
     linea = 1
     columna = 1
     tokens = []
     listaerrores = []
+    listainstrucciones = []
     
 
     #Obtener Tokens
     obtenertokens(texto)
     
 ################################################################
-def obtener_instrucciones():
+def obtener_instruccion():
     global tokens
     operacion = ''
     valor1 = ''
@@ -188,19 +201,25 @@ def obtener_instrucciones():
             valor1 = tokens.pop(0)
             #Evaluea si no hay mas instrucciones adentro del valor1
             if valor1 == '[':
-                valor1 = obtener_instrucciones()
+                valor1 = obtener_instruccion()
         elif token == 'valor2':
-            #Eliminar el siguiente token : (dos puntos)
+            #Eliminar el siguiente token : (dos puntos) o , (coma)
             tokens.pop(0)
+            #Evalua si hay comas
             #Obtine el valor 2
             valor2 = tokens.pop(0)
             #Evaluea si no hay mas instrucciones adentro del valor2
             if valor2 == '[':
-                valor2 = obtener_instrucciones()
+                valor2 = obtener_instruccion()
 
+        #Evaluar si es una operacion de un valor o dos
         if operacion and valor1 and valor2:
-            print('\n\noperacion: ', operacion, 'valor1: ', valor1, 'valor2: ', valor2)
+            #Operacion con dos Valores
+            print('\n\noperacion:', operacion, '|valor1:', valor1, '|valor2:', valor2)
             return [operacion,valor1,valor2]
+        if operacion and operacion in ['seno','coseno','tangente'] and valor1:
+            return [operacion,valor1,None]
+
 
     
 
