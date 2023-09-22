@@ -8,6 +8,7 @@ from graphviz import Digraph
 
 from Archivojson import *
 from Operaciones import *
+from Grafica import *
 
 
 #         MessageBox.showerror('Error:[analizado.py][CG002]','No se pudo convertir un diccionario revise el texto introducido')
@@ -387,15 +388,6 @@ def graphviz():
     #system('dot -Tpng archivo.dot -o archivograph1.png')
 
 
-    # dot = Digraph('AFD', filename='AFDPrueba', format='png')
-    # dot.attr(rankdir='LR', size='8,5')
-    # dot.attr('node', shape='doublecircle')
-    # dot.node('C')
-    # dot.attr('node', shape='circle')
-    # dot.node('A')
-    # dot.edge('A', 'C', label='1') # A,1;B
-    # dot.render('AFDPrueba', view=False)
-
     dot = Digraph('Grafica',filename='Grafica1', format='png')
     dot.attr(rankdir='LR', size='8,5')
     dot.attr('node', shape='circle')
@@ -404,7 +396,9 @@ def graphviz():
     dot.node('x3','suma\n35')
     dot.edge('x3','x1')
     dot.edge('x3','x2')
-    dot.render('Graficapng', view=True)
+    dot.render('Graficapng', view=False)
+
+    Arbol.hola()
 
 
     
