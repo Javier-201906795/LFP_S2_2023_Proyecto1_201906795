@@ -319,7 +319,7 @@ def interpretar_instruccion(operacion, valor1, valor2):
             nodocentral = Arbol.agregarnodo(str(operacion)+'\n'+str(resultado))
             nodo1 = Arbol.agregarnodo(valor1)
             Arbol.conectarnodo(nodocentral,nodo1)
-            return resultado   
+            return resultado, nodocentral   
 
 ################################################################    
 def evaluar_tipo_operacion(operacion, valor1, valor2):
@@ -364,7 +364,7 @@ def evaluar_tipo_operacion(operacion, valor1, valor2):
 ################################################################
 #Inicia
 def realizar_instruccion():
-    global listainstrucciones, listaresultados, recursividadactiva
+    global listainstrucciones, listaresultados, recursividadactiva, nodorecursivo
     # # interpretar_instruccion()
     a = 0
     while listainstrucciones:
@@ -373,6 +373,7 @@ def realizar_instruccion():
         valor1 = None
         valor2 = None
         recursividadactiva = False
+        nodorecursivo = {'nombre':'','valor':'','activo': False}
         resultado = interpretar_instruccion(operacion,valor1,valor2)
         #Almacenar resultado
         listaresultados.append(resultado)
