@@ -264,11 +264,13 @@ def interpretar_instruccion(operacion, valor1, valor2):
         
         #Hay operaciones adentro del valor
         if esunnumero(valor1) == False:
+            #valor es una lista
             anewoperacion = valor1[0]
             anewvalor1 = valor1[1]
             anewvalor2 = valor1[2]
             valor1 = interpretar_instruccion(anewoperacion,anewvalor1,anewvalor2)
         if esunnumero(valor2) == False and valor2!=None:
+            #valor es una lista
             newoperacion = valor2[0]
             newvalor1 = valor2[1]
             newvalor2 = valor2[2]
@@ -277,11 +279,21 @@ def interpretar_instruccion(operacion, valor1, valor2):
             #Intentar Resolver
             #Operar
             resultado = evaluar_tipo_operacion(operacion,valor1,valor2)
+            #Arbol 
+            nodocentral = Arbol.agregarnodo(str(operacion)+'\n'+str(resultado))
+            nodo1 = Arbol.agregarnodo(valor1)
+            nodo2 = Arbol.agregarnodo(valor2)
+            Arbol.conectarnodo(nodocentral,nodo1)
+            Arbol.conectarnodo(nodocentral,nodo2)
             return resultado   
         if esunnumero(valor1) and valor2 == None:
             #Es un elemento de un valor
             #Operar
             resultado = evaluar_tipo_operacion(operacion,valor1,valor2)
+            #Arbol 
+            nodocentral = Arbol.agregarnodo(str(operacion)+'\n'+str(resultado))
+            nodo1 = Arbol.agregarnodo(valor1)
+            Arbol.conectarnodo(nodocentral,nodo1)
             return resultado   
 
 ################################################################    
@@ -360,6 +372,9 @@ def lexico(texto):
     listaresultados = []
     configuraciones = {'texto':'operaciones2', 'fondo':'white','fuente':'blue', 'forma':'circle'}
     
+    #Arbol
+    Arbol.generagraficaarbol()
+    Arbol.configuraciones(configuraciones)
 
     #Obtener Tokens -> tokens
     obtenertokens(texto)
@@ -382,6 +397,11 @@ def lexico(texto):
 
     print('\n||||||| [ CONFIGURACIONES ] |||||||')
     print(configuraciones)
+
+    #Arbol
+    Arbol.render()
+
+
 
 def graphviz():
     #Crear imagen Graphviz

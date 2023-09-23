@@ -11,7 +11,7 @@ cont = 0
 def generagraficaarbol():
     global dot
     dot = Digraph('Grafica',filename='Grafica1', format='png')
-    dot.attr(rankdir='LR', size='8,5')
+    #dot.attr(rankdir='LR', size='8,5')
 
 def configuraciones(configuraciones):
     global dot

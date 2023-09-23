@@ -10,16 +10,6 @@
                     "valor2":3
                 }
             ]
-        },
-        {
-            "operacion": "suma",
-            "valor1":[
-                {
-                    "operacion":"seno",
-                    "valor1":90
-                }
-                ],
-            "valor2":5.32
         }
     ],
     "configuraciones":[
@@ -31,4 +21,5 @@
         }
     ]
 }
+
 

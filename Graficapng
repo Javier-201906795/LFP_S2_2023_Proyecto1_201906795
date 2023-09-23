@@ -1,7 +1,21 @@
 digraph Grafica {
-	rankdir=LR size="8,5"
 	node [fillcolor=white fontcolor=blue shape=circle style=filled]
-	x1 [label=10]
-	x2 [label=5]
+	x1 [label="suma
+9.82"]
+	x2 [label=4.5]
+	x3 [label=5.32]
 	x1 -> x2
+	x1 -> x3
+	x4 [label="multiplicacion
+21.0"]
+	x5 [label=7]
+	x6 [label=3]
+	x4 -> x5
+	x4 -> x6
+	x7 [label="division
+5.0"]
+	x8 [label=15]
+	x9 [label=3]
+	x7 -> x8
+	x7 -> x9
 }
