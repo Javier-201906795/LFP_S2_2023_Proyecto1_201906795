@@ -24,7 +24,7 @@ listaerrores = []
 listainstrucciones = []
 contadorinstrucciones = 0
 listaresultados = []
-configuraciones = {'texto':'Operaciones', 'fondo':'white','fuente':'arial', 'forma':'circle'}
+configuraciones = {'texto':'Operaciones', 'fondo':'white','fuente':'blue', 'forma':'circle'}
 
 ################################################################
 
@@ -358,7 +358,7 @@ def lexico(texto):
     listainstrucciones = []
     contadorinstrucciones = 0
     listaresultados = []
-    configuraciones = {'texto':'operaciones2', 'fondo':'white','fuente':'arial', 'forma':'circle'}
+    configuraciones = {'texto':'operaciones2', 'fondo':'white','fuente':'blue', 'forma':'circle'}
     
 
     #Obtener Tokens -> tokens
@@ -386,23 +386,13 @@ def lexico(texto):
 def graphviz():
     #Crear imagen Graphviz
     #system('dot -Tpng archivo.dot -o archivograph1.png')
-
-
-    # dot = Digraph('Grafica',filename='Grafica1', format='png')
-    # dot.attr(rankdir='LR', size='8,5')
-    # dot.attr('node', shape='circle')
-    # dot.node('x1','10')
-    # dot.node('x2','25')
-    # dot.node('x3','suma\n35')
-    # dot.edge('x3','x1')
-    # dot.edge('x3','x2')
-    # dot.render('Graficapng', view=False)
-
-    Arbol.hola()
+    
+    global configuraciones
     Arbol.generagraficaarbol()
-    Arbol.configuraciones()
-    Arbol.agregarnodo()
-    Arbol.conectarnodo()
+    Arbol.configuraciones(configuraciones)
+    n1 = Arbol.agregarnodo(10)
+    n2 = Arbol.agregarnodo(5)
+    Arbol.conectarnodo(n1,n2)
     Arbol.render()
 
 

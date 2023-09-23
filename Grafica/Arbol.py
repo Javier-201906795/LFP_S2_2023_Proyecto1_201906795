@@ -3,9 +3,9 @@ from graphviz import Digraph
 
 
 dot = None
+cont = 0
 
-def hola():
-    print('hola')
+
 
 
 def generagraficaarbol():
@@ -13,20 +13,27 @@ def generagraficaarbol():
     dot = Digraph('Grafica',filename='Grafica1', format='png')
     dot.attr(rankdir='LR', size='8,5')
 
-def configuraciones():
+def configuraciones(configuraciones):
     global dot
-    dot.attr('node', shape='circle')
+    #dot.attr('node', shape='circle')
+    dot.attr(
+            "node",
+            style="filled",
+            fillcolor=configuraciones['fondo'],
+            fontcolor=configuraciones['fuente'],
+            shape=configuraciones['forma'],
+        )
 
-def agregarnodo():
-    global dot
-    dot.node('x1','10')
-    dot.node('x2','25')
-    dot.node('x3','suma\n35')
+def agregarnodo(label):
+    global dot, cont
+    cont += 1
+    nodonombre = 'x' + str(cont) 
+    dot.node(nodonombre,str(label))
+    return nodonombre
 
-def conectarnodo():
+def conectarnodo(nodo1,nodo2):
     global dot
-    dot.edge('x3','x1')
-    dot.edge('x3','x2')
+    dot.edge(str(nodo1),str(nodo2))
 
 def render():
     global dot
