@@ -26,6 +26,8 @@ contadorinstrucciones = 0
 listaresultados = []
 configuraciones = {'texto':'Operaciones', 'fondo':'white','fuente':'blue', 'forma':'circle'}
 
+recursividadactiva = True
+
 ################################################################
 
 
@@ -250,7 +252,7 @@ def interpretar_instruccion(operacion, valor1, valor2):
     global listainstrucciones
     
     resultado = None
-    while listainstrucciones:
+    while (listainstrucciones or recursividadactiva):
         
         #Obtener Valores
         if operacion == None and valor1 == None and valor2 == None:
