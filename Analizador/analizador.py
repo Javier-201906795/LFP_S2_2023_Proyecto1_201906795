@@ -308,8 +308,9 @@ def interpretar_instruccion(operacion, valor1, valor2):
             else:
                 nodo1 = Arbol.agregarnodo(valor1)
                 nodo2 = Arbol.agregarnodo(valor2)
-            Arbol.conectarnodo(nodocentral,nodo1)
+            
             Arbol.conectarnodo(nodocentral,nodo2)
+            Arbol.conectarnodo(nodocentral,nodo1)
             return resultado, nodocentral  
         if esunnumero(valor1) and valor2 == None:
             #Es un elemento de un valor
