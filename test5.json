@@ -2,14 +2,14 @@
     "operaciones":[
         {
             "operacion": "resta",
-            "valor1":4.5,
-            "valor2": [
+            "valor1":[
                 {
                     "operacion":"potencia",
                     "valor1":10,
                     "valor2":3
                 }
-            ]
+            ],
+            "valor2": 4.5
         }
     ],
     "configuraciones":[
@@ -21,5 +21,6 @@
         }
     ]
 }
+
 
 

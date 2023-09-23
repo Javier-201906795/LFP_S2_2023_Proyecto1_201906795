@@ -270,6 +270,8 @@ def interpretar_instruccion(operacion, valor1, valor2):
         
         #Hay operaciones adentro del valor
         if esunnumero(valor1) == False:
+            #Arbol
+            nodo2 = Arbol.agregarnodo(valor2)
             #valor es una lista
             anewoperacion = valor1[0]
             anewvalor1 = valor1[1]
@@ -280,7 +282,10 @@ def interpretar_instruccion(operacion, valor1, valor2):
             nodorecursivo['valor'] = '1'
             nodorecursivo['nombre'] = nombrenodo
             nodorecursivo['activo'] = True
+            
         if esunnumero(valor2) == False and valor2!=None:
+            #Arbol
+            nodo1 = Arbol.agregarnodo(valor1)
             #valor es una lista
             newoperacion = valor2[0]
             newvalor1 = valor2[1]
@@ -293,17 +298,14 @@ def interpretar_instruccion(operacion, valor1, valor2):
             nodorecursivo['activo'] = True
         if esunnumero(valor1) and esunnumero(valor2):
             #Intentar Resolver
-            #Operar
             resultado = evaluar_tipo_operacion(operacion,valor1,valor2)
             
             #Arbol evaluar recursividad
             if nodorecursivo['activo']:
                 if nodorecursivo['valor'] == '2':
-                    nodo1 = Arbol.agregarnodo(valor1)
                     nodo2 = nodorecursivo['nombre']    
                 elif nodorecursivo['valor'] == '1':
                     nodo1 = nodorecursivo['nombre']
-                    nodo2 = Arbol.agregarnodo(valor2)    
             else:
                 nodo1 = Arbol.agregarnodo(valor1)
                 nodo2 = Arbol.agregarnodo(valor2)
@@ -432,6 +434,7 @@ def lexico(texto):
 
     #Arbol
     Arbol.render()
+    Arbol.reiniciarvalores()
 
 
 

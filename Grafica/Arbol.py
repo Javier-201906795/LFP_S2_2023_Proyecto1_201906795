@@ -5,7 +5,9 @@ from graphviz import Digraph
 dot = None
 cont = 0
 
-
+def reiniciarvalores():
+    global dot, cont
+    cont = 0
 
 
 def generagraficaarbol():
