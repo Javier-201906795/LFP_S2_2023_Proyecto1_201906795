@@ -265,6 +265,7 @@ def interpretar_instruccion(operacion, valor1, valor2):
             print('\n###### [ Instruccion ] #######')
             print(operacion,'|', valor1,'|', valor2,'|')
             print('-----------------------------------')
+            
         
         #Hay operaciones adentro del valor
         if esunnumero(valor1) == False:
