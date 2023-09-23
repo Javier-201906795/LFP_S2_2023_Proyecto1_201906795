@@ -275,8 +275,11 @@ def interpretar_instruccion(operacion, valor1, valor2):
             anewvalor1 = valor1[1]
             anewvalor2 = valor1[2]
             recursividadactiva = True
-            valor1 = interpretar_instruccion(anewoperacion,anewvalor1,anewvalor2)
-            #print("\033[1;31;40m", nodorecursivo,"\033[0m")
+            valor1, nombrenodo = interpretar_instruccion(anewoperacion,anewvalor1,anewvalor2)
+            #Arbol
+            nodorecursivo['valor'] = '1'
+            nodorecursivo['nombre'] = nombrenodo
+            nodorecursivo['activo'] = True
         if esunnumero(valor2) == False and valor2!=None:
             #valor es una lista
             newoperacion = valor2[0]
@@ -288,7 +291,6 @@ def interpretar_instruccion(operacion, valor1, valor2):
             nodorecursivo['valor'] = '2'
             nodorecursivo['nombre'] = nombrenodo
             nodorecursivo['activo'] = True
-            # print("\033[1;31;40m", nodorecursivo,"\033[0m")
         if esunnumero(valor1) and esunnumero(valor2):
             #Intentar Resolver
             #Operar
@@ -298,8 +300,11 @@ def interpretar_instruccion(operacion, valor1, valor2):
             #Arbol evaluar recursividad
             if nodorecursivo['activo']:
                 if nodorecursivo['valor'] == '2':
-                    nodo2 = nodorecursivo['nombre']    
                     nodo1 = Arbol.agregarnodo(valor1)
+                    nodo2 = nodorecursivo['nombre']    
+                elif nodorecursivo['valor'] == '1':
+                    nodo1 = nodorecursivo['nombre']
+                    nodo2 = Arbol.agregarnodo(valor2)    
             else:
                 nodo1 = Arbol.agregarnodo(valor1)
                 nodo2 = Arbol.agregarnodo(valor2)

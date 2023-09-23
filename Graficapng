@@ -1,14 +1,13 @@
 digraph Grafica {
 	node [fillcolor=white fontcolor=blue shape=circle style=filled]
-	x1 [label="potencia
+	x6 [label="potencia
 1000.0"]
-	x2 [label=10]
-	x3 [label=3]
-	x1 -> x2
-	x1 -> x3
-	x4 [label="resta
--995.5"]
-	x5 [label=4.5]
-	x4 -> x5
-	x4 -> x1
+	x7 [label=10]
+	x6 -> x7
+	x6 -> x1
+	x8 [label="resta
+988.0"]
+	x9 [label=12]
+	x8 -> x6
+	x8 -> x9
 }
