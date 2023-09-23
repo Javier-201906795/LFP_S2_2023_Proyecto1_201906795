@@ -41,4 +41,5 @@ def conectarnodo(nodo1,nodo2):
 
 def render():
     global dot
-    dot.render('Graficapng', view=True)
+    dot.render('GraficaArbol', view=True)
+    dot.save("GraficaArbol.dot")

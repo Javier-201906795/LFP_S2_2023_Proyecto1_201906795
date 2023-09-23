@@ -1,0 +1,15 @@
+digraph Grafica {
+	rankdir=LR
+	node [fillcolor=red fontcolor=blue shape=circle style=filled]
+	x1 [label="potencia
+1000.0"]
+	x2 [label=10]
+	x3 [label=3]
+	x1 -> x3
+	x1 -> x2
+	x4 [label="resta
+-995.5"]
+	x5 [label=4.5]
+	x4 -> x1
+	x4 -> x5
+}
