@@ -270,8 +270,6 @@ def interpretar_instruccion(operacion, valor1, valor2):
         
         #Hay operaciones adentro del valor
         if esunnumero(valor1) == False:
-            #Arbol
-            nodo2 = Arbol.agregarnodo(valor2)
             #valor es una lista
             anewoperacion = valor1[0]
             anewvalor1 = valor1[1]
@@ -306,6 +304,7 @@ def interpretar_instruccion(operacion, valor1, valor2):
                     nodo2 = nodorecursivo['nombre']    
                 elif nodorecursivo['valor'] == '1':
                     nodo1 = nodorecursivo['nombre']
+                    nodo2 = Arbol.agregarnodo(valor2)
             else:
                 nodo1 = Arbol.agregarnodo(valor1)
                 nodo2 = Arbol.agregarnodo(valor2)

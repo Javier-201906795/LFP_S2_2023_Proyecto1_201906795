@@ -1,0 +1,27 @@
+{
+    "operaciones":[
+        {
+            "operacion": "resta",
+            "valor1":4.5,
+            "valor2": [
+                {
+                    "operacion":"potencia",
+                    "valor1":10,
+                    "valor2":3
+                }
+            ]
+        }
+    ],
+    "configuraciones":[
+        {
+            "texto":"Operaciones",
+            "fondo":"red",
+            "fuente":"blue",
+            "forma":"circle"
+        }
+    ]
+}
+
+
+
+
