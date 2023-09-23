@@ -222,7 +222,9 @@ def formar_instrucciones():
     global tokens, listainstrucciones
 
     while tokens:
+        
         instruccion = obtener_instruccion()
+        
         if instruccion:
             #Añadir nueva instruccion
             listainstrucciones.append(instruccion)
@@ -249,7 +251,7 @@ def esunnumero(posiblenumero):
 ################################################################
 
 def interpretar_instruccion(operacion, valor1, valor2):
-    global listainstrucciones
+    global listainstrucciones, recursividadactiva
     
     resultado = None
     while (listainstrucciones or recursividadactiva):
@@ -270,12 +272,14 @@ def interpretar_instruccion(operacion, valor1, valor2):
             anewoperacion = valor1[0]
             anewvalor1 = valor1[1]
             anewvalor2 = valor1[2]
+            recursividadactiva = True
             valor1 = interpretar_instruccion(anewoperacion,anewvalor1,anewvalor2)
         if esunnumero(valor2) == False and valor2!=None:
             #valor es una lista
             newoperacion = valor2[0]
             newvalor1 = valor2[1]
             newvalor2 = valor2[2]
+            recursividadactiva = True
             valor2 = interpretar_instruccion(newoperacion,newvalor1,newvalor2)
         if esunnumero(valor1) and esunnumero(valor2):
             #Intentar Resolver
@@ -341,7 +345,7 @@ def evaluar_tipo_operacion(operacion, valor1, valor2):
 ################################################################
 #Inicia
 def realizar_instruccion():
-    global listainstrucciones, listaresultados
+    global listainstrucciones, listaresultados, recursividadactiva
     # # interpretar_instruccion()
     a = 0
     while listainstrucciones:
@@ -349,6 +353,7 @@ def realizar_instruccion():
         operacion = None
         valor1 = None
         valor2 = None
+        recursividadactiva = False
         resultado = interpretar_instruccion(operacion,valor1,valor2)
         #Almacenar resultado
         listaresultados.append(resultado)
