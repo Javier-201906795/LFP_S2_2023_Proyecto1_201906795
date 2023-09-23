@@ -9,7 +9,6 @@ digraph Grafica {
 	x4 [label="resta
 -995.5"]
 	x5 [label=4.5]
-	x6 [label=1000.0]
 	x4 -> x5
-	x4 -> x6
+	x4 -> x1
 }

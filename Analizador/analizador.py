@@ -27,7 +27,7 @@ listaresultados = []
 configuraciones = {'texto':'Operaciones', 'fondo':'white','fuente':'blue', 'forma':'circle'}
 
 recursividadactiva = True
-nodorecursivo = ''
+nodorecursivo = {'nombre':'','valor':'','activo': False}
 
 ################################################################
 
@@ -275,28 +275,37 @@ def interpretar_instruccion(operacion, valor1, valor2):
             anewvalor1 = valor1[1]
             anewvalor2 = valor1[2]
             recursividadactiva = True
-            valor1, nodorecursivo = interpretar_instruccion(anewoperacion,anewvalor1,anewvalor2)
-            print("\033[1;31;40m", nodorecursivo,"\033[0m")
+            valor1 = interpretar_instruccion(anewoperacion,anewvalor1,anewvalor2)
+            #print("\033[1;31;40m", nodorecursivo,"\033[0m")
         if esunnumero(valor2) == False and valor2!=None:
             #valor es una lista
             newoperacion = valor2[0]
             newvalor1 = valor2[1]
             newvalor2 = valor2[2]
             recursividadactiva = True
-            valor2, nodorecursivo = interpretar_instruccion(newoperacion,newvalor1,newvalor2)
-            print("\033[1;31;40m", nodorecursivo,"\033[0m")
+            valor2, nombrenodo = interpretar_instruccion(newoperacion,newvalor1,newvalor2)
+            #Arbol
+            nodorecursivo['valor'] = '2'
+            nodorecursivo['nombre'] = nombrenodo
+            nodorecursivo['activo'] = True
+            # print("\033[1;31;40m", nodorecursivo,"\033[0m")
         if esunnumero(valor1) and esunnumero(valor2):
             #Intentar Resolver
             #Operar
             resultado = evaluar_tipo_operacion(operacion,valor1,valor2)
             #Arbol 
             nodocentral = Arbol.agregarnodo(str(operacion)+'\n'+str(resultado))
-
-            nodo1 = Arbol.agregarnodo(valor1)
-            nodo2 = Arbol.agregarnodo(valor2)
+            #Arbol evaluar recursividad
+            if nodorecursivo['activo']:
+                if nodorecursivo['valor'] == '2':
+                    nodo2 = nodorecursivo['nombre']    
+                    nodo1 = Arbol.agregarnodo(valor1)
+            else:
+                nodo1 = Arbol.agregarnodo(valor1)
+                nodo2 = Arbol.agregarnodo(valor2)
             Arbol.conectarnodo(nodocentral,nodo1)
             Arbol.conectarnodo(nodocentral,nodo2)
-            return resultado, nodocentral   
+            return resultado, nodocentral  
         if esunnumero(valor1) and valor2 == None:
             #Es un elemento de un valor
             #Operar
