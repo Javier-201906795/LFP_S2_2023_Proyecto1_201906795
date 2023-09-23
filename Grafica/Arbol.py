@@ -11,7 +11,7 @@ cont = 0
 def generagraficaarbol():
     global dot
     dot = Digraph('Grafica',filename='Grafica1', format='png')
-    dot.attr(rankdir='LR')
+    # dot.attr(rankdir='LR')
 
 def configuraciones(configuraciones):
     global dot
@@ -43,3 +43,4 @@ def render():
     global dot
     dot.render('GraficaArbol', view=True)
     dot.save("GraficaArbol.dot")
+    #dot -Tpng GraficaArbol.dot -o archivograph1.png

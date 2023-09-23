@@ -295,8 +295,7 @@ def interpretar_instruccion(operacion, valor1, valor2):
             #Intentar Resolver
             #Operar
             resultado = evaluar_tipo_operacion(operacion,valor1,valor2)
-            #Arbol 
-            nodocentral = Arbol.agregarnodo(str(operacion)+'\n'+str(resultado))
+            
             #Arbol evaluar recursividad
             if nodorecursivo['activo']:
                 if nodorecursivo['valor'] == '2':
@@ -309,6 +308,8 @@ def interpretar_instruccion(operacion, valor1, valor2):
                 nodo1 = Arbol.agregarnodo(valor1)
                 nodo2 = Arbol.agregarnodo(valor2)
             
+            #Arbol 
+            nodocentral = Arbol.agregarnodo(str(operacion)+'\n'+str(resultado))
             Arbol.conectarnodo(nodocentral,nodo2)
             Arbol.conectarnodo(nodocentral,nodo1)
             return resultado, nodocentral  
