@@ -402,13 +402,16 @@ def lexico(texto):
     
     #Arbol
     Arbol.generagraficaarbol()
-    Arbol.configuraciones(configuraciones)
+    
 
     #Obtener Tokens -> tokens
     obtenertokens(texto)
+    
 
     #Evaluar token y formar instrucciones -> listainstrucciones
     formar_instrucciones()
+    #Arbol
+    Arbol.configuraciones(configuraciones)
 
     #Interpretar instrucciones
     realizar_instruccion()

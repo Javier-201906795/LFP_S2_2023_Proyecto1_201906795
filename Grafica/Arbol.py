@@ -16,12 +16,16 @@ def generagraficaarbol():
 def configuraciones(configuraciones):
     global dot
     #dot.attr('node', shape='circle')
+    fondocolor = configuraciones['fondo']
+    letracolor = configuraciones['fuente']
+    forma = configuraciones['forma']
+    
     dot.attr(
             "node",
             style="filled",
-            fillcolor=configuraciones['fondo'],
-            fontcolor=configuraciones['fuente'],
-            shape=configuraciones['forma'],
+            fillcolor=fondocolor,
+            fontcolor=letracolor,
+            shape=forma,
         )
 
 def agregarnodo(label):
