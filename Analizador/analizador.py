@@ -448,6 +448,24 @@ def reporte():
         MessageBox.showerror('Error - reporte()','No hay instrucciones cargadas en el sistema para validar.')
 
 
+def erroresjson():
+    if len(listaerrores) > 0:
+        diccionarioerrores = {'errores':[]}
+        a = 0
+        for error in listaerrores:
+            a +=1
+            nuevoerror = {'No': a,'descripcion':{'lexema':error[0],'tipo':error[3],'columna':error[2],'fila':error[1]}}
+            diccionarioerrores['errores'].append(nuevoerror)
+            
+        
+        
+        errorjson = json.dumps(diccionarioerrores,indent=4)
+        return errorjson
+    else:
+        return None
+
+
+
 
 def graphviz():
     #Crear imagen Graphviz

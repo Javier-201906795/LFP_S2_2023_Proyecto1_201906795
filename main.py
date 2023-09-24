@@ -81,8 +81,12 @@ def Analizar():
 
 def Errores():
     print('errores')
-    mensajeerroresjson = '{Errores: 1}'
-    MessageBox.showinfo("Errores", mensajeerroresjson)
+    contenidojson = analizador.erroresjson()
+    if contenidojson == None:
+        MessageBox.showinfo('Advertencia','No hay errores que evaluar')
+    else:
+        MessageBox.showinfo('Advertencia','Se creo el archivo "error.RESULTADOS_201906795.json"')
+        print(contenidojson)
 
 def Reporte():
     print('reporte')
