@@ -8,3 +8,6 @@ error.RESULTADOS_201906795.json
 /Operaciones/__pycache__
 /Analizador/Grafica/__pycache__
 /Archivojson/__pycache__/
+GraficaArbol
+GraficaArbol.dot
+GraficaArbol.png
