@@ -119,7 +119,7 @@ btnanalizar.place(x=230,y=10, width=80, height= 35)
 btnerrores = Button(raiz,text='Errores', bg='#313446', fg='#FFFFFF', command=Errores)
 btnerrores.place(x=370,y=10, width=80, height= 35)
 
-btnreportes = Button(raiz,text='Reportes', bg='#313446', fg='#FFFFFF', command=Reporte)
+btnreportes = Button(raiz,text='Reporte', bg='#313446', fg='#FFFFFF', command=Reporte)
 btnreportes.place(x=510,y=10, width=80, height= 35)
 
 opcionesarchivo = ['ARCHIVO','Abrir','Guardar','Guardar como', 'Salir']
