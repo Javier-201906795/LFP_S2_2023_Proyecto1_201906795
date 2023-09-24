@@ -33,9 +33,15 @@ def raiz (num,raiz):
     print('• Raiz: numero: ',num,' raiz: ',raiz, ' = ', resraiz)
     return resraiz
 
-def inverso(num1,num2):
-    resinverso = float(1)
-    print('• Inverso: ', num1, ' y ',num2, ' = ', resinverso )
+def inverso(num):
+    #Redondear numero por si tiene decimales
+    numero = round(num)
+    #Convertir a texto
+    txtnumero = str(numero)
+    resinverso = txtnumero[::-1]
+    #Convertir texto a numero    
+    resinverso = int(resinverso)
+    print('• Inverso: ', num,'=', resinverso )
     return resinverso
 
 def seno(num):

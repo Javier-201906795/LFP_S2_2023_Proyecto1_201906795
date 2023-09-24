@@ -75,11 +75,16 @@ def Analizar():
     texto = str(inputtexto.get("1.0",END))
     #Enviar texto al analizador lexico y obtiene tokens
     analizador.lexico(texto)
+
+    
     
 
     
 
 def Errores():
+    aritmetica.inverso(25.24)
+    aritmetica.inverso(5244)
+    aritmetica.inverso(12345)
     print('errores')
     contenidojson = analizador.erroresjson()
     if contenidojson == None:
