@@ -1,9 +1,23 @@
 digraph Grafica {
-	node [fillcolor=white fontcolor=blue shape=circle style=filled]
-	x4 [label=4]
-	x5 [label=5]
-	x6 [label="suma
-9.0"]
-	x6 -> x5
-	x6 -> x4
+	node [fillcolor=yellow fontcolor=black shape=box style=filled]
+	x10 [label=4.5]
+	x11 [label=10]
+	x12 [label=3]
+	x13 [label="potencia
+1000.0"]
+	x13 -> x12
+	x13 -> x11
+	x14 [label="resta
+-995.5"]
+	x14 -> x13
+	x14 -> x10
+	x15 [label="seno
+1.0"]
+	x16 [label=90]
+	x15 -> x16
+	x17 [label=5.32]
+	x18 [label="suma
+6.32"]
+	x18 -> x17
+	x18 -> x15
 }
