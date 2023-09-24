@@ -5,7 +5,7 @@ import json
 def jsonabrirarchivo(ruta):
     nombre, extension = os.path.splitext(ruta)
     
-    if (extension == '.json' or extension == '.JSON' or extension == '.Json'):
+    try:
         textoarchivo = ''
         try:
             with open(ruta, "r") as archivo:
@@ -13,8 +13,8 @@ def jsonabrirarchivo(ruta):
                 return textoarchivo
         except:
             print("♦ Error[SJSON.py][CD001]: no se pudo abrir el archivo.")
-    else:
-        print("♦ Error[SJSON.py][CD002]: no se pudo abrir el archivo porque no es un archivo JSON.")
+    except:
+        print("♦ Error[SJSON.py][CD002]: no se pudo abrir el archivo.")
 
 
 
