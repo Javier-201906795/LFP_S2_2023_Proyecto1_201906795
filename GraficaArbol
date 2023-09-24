@@ -1,5 +1,5 @@
 digraph Grafica {
-	node [fillcolor=white fontcolor=blue shape=circle style=filled]
+	node [fillcolor=yellow fontcolor=red shape=circle style=filled]
 	x1 [label=4.5]
 	x2 [label=10]
 	x3 [label=3]
