@@ -24,3 +24,27 @@ import json
 ___
 
 <br>
+
+###  Estructura Carpetas
+
+~~~
+LFP_S2_2023_Proyecto1_201906795
+├── Analizador
+│   ├── __init__.py
+│   └── analizador.py
+├── Archivojson
+│   ├── __init__.py
+│   └── Sjson.py
+├── Grafica
+│   ├── __init__.py
+│   └── Arbol.py
+├── Operaciones
+│   ├── __init__.py
+│   └── aritmetica.py
+├── error.RESULTADOS_201906795.json
+├── GraficaArbol
+├── GraficaArbol.dot
+├── GraficaArbol.png
+├── main.py
+└── entrada.json
+~~~
