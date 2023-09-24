@@ -1,5 +1,5 @@
 digraph Grafica {
-	node [fillcolor=red fontcolor=blue shape=circle style=filled]
+	node [fillcolor=white fontcolor=blue shape=circle style=filled]
 	x1 [label=4.5]
 	x2 [label=10]
 	x3 [label=3]
@@ -11,4 +11,13 @@ digraph Grafica {
 -995.5"]
 	x5 -> x4
 	x5 -> x1
+	x6 [label="seno
+1.0"]
+	x7 [label=90]
+	x6 -> x7
+	x8 [label=5.32]
+	x9 [label="suma
+6.32"]
+	x9 -> x8
+	x9 -> x6
 }

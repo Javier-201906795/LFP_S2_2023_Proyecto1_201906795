@@ -43,6 +43,7 @@ def Guardar():
     archivo.write(texto)
     archivo.close()
     print('Archivo guardado.')
+    MessageBox.showinfo('Guardar','Archivo guardado con exito.')
 
 def Guardarcomo():
     print('Guardarcomo')
@@ -55,12 +56,15 @@ def Guardarcomo():
     archivo.write(texto)
     archivo.close()
     print('Archivo guardado.')
+    MessageBox.showinfo('Guardar como','Archivo guardado con exito.')
     
     
 
 def Salir():
     print('Salir')
-    raiz.destroy()
+    salir = MessageBox.askokcancel(message="¿Desea continuar?", title="Salir")
+    if salir:
+        raiz.destroy()
 
 
 
@@ -77,11 +81,13 @@ def Analizar():
 
 def Errores():
     print('errores')
-    MessageBox.showinfo("Hola!", "Hola mundo")
+    mensajeerroresjson = '{Errores: 1}'
+    MessageBox.showinfo("Errores", mensajeerroresjson)
 
 def Reporte():
     print('reporte')
-    analizador.graphviz()
+    #analizador.graphviz()
+    analizador.reporte()
 
 
 

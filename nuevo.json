@@ -1,5 +1,5 @@
 {
- "operaciones":[
+ "operaciones":[&
  {
   "operacion": "suma",
   "valor1": 4.5,
@@ -12,6 +12,7 @@
   }#
  ]?
 }
+
 
 
 

@@ -25,10 +25,11 @@
     "configuraciones":[
         {
             "texto":"Operaciones",
-            "fondo":"red",
+            "fondo":"white",
             "fuente":"blue",
             "forma":"circle"
         }
     ]
 }
+
 

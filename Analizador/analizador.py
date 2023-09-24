@@ -431,6 +431,10 @@ def lexico(texto):
     print('\n||||||| [ CONFIGURACIONES ] |||||||')
     print(configuraciones)
 
+    
+
+
+def reporte():
     #Arbol
     Arbol.render()
     Arbol.reiniciarvalores()
