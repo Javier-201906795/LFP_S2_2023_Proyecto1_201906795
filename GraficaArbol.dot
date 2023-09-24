@@ -1,21 +1,9 @@
 digraph Grafica {
-	node [fillcolor=red fontcolor=white shape=circle style=filled]
+	node [fillcolor=white fontcolor=blue shape=circle style=filled]
 	x1 [label=4.5]
 	x2 [label=5.32]
 	x3 [label="suma
 9.82"]
 	x3 -> x2
 	x3 -> x1
-	x4 [label=7]
-	x5 [label=3]
-	x6 [label="multiplicacion
-21.0"]
-	x6 -> x5
-	x6 -> x4
-	x7 [label=15]
-	x8 [label=3]
-	x9 [label="division
-5.0"]
-	x9 -> x8
-	x9 -> x7
 }
