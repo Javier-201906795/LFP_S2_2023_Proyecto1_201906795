@@ -82,9 +82,6 @@ def Analizar():
     
 
 def Errores():
-    aritmetica.mod(5,2)
-    aritmetica.mod(2,2)
-    aritmetica.mod(7,2)
     print('errores')
     contenidojson = analizador.erroresjson()
     if contenidojson == None:
@@ -109,6 +106,8 @@ def Reporte():
 def listaseleccion():
     print(listaopcionesarchivo.get())
 
+
+########################################################################
 raiz = Tk()
 raiz.title('LFP Proyecto 1 | 201906795')
 raiz.geometry('900x500')
