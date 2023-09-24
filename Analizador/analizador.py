@@ -171,6 +171,7 @@ def obtener_instruccion():
             tokens.pop(0)
             #Almacena el tipo de operacion
             operacion = tokens.pop(0)
+            operacion = operacion.lower()
         elif token == 'valor1':
             #Eliminar el siguiente token : (dos puntos)
             tokens.pop(0)
