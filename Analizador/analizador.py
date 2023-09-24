@@ -390,6 +390,11 @@ def realizar_instruccion():
 
 ################################################################
 def lexico(texto):
+    print('largo',len(texto),'texto:', texto,)
+    #Validador
+    if len(texto) <= 80:
+        MessageBox.showerror('Error - lexico()','No hay informacion necesarioa para procesarlo')
+        return
 
     global tokens, listaerrores, linea, columna, listainstrucciones, contadorinstrucciones, listaresultados, configuraciones
     #Reiniciar valores
@@ -435,9 +440,12 @@ def lexico(texto):
 
 
 def reporte():
-    #Arbol
-    Arbol.render()
-    Arbol.reiniciarvalores()
+    if len(listaresultados) > 0:
+        #Arbol
+        Arbol.render()
+        Arbol.reiniciarvalores()
+    else:
+        MessageBox.showerror('Error - reporte()','No hay instrucciones cargadas en el sistema para validar.')
 
 
 

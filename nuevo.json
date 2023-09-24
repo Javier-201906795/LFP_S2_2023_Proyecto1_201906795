@@ -1,17 +1,13 @@
 {
- "operaciones":[&
- {
-  "operacion": "suma",
-  "valor1": 4.5,
-  "valor2": 5.32
-  },
-  {
-   "operacion":"multiplicacion",
-   "valor1": 7,
-   "valor2": 3
-  }#
- ]?
+"operaciones":[
+{
+"operacion": "suma",
+"valor1": 4,
+"valor2": 5
 }
+]
+}
+
 
 
 
