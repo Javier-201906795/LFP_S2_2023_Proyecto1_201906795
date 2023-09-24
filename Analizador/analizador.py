@@ -11,7 +11,6 @@ from Operaciones import *
 from Grafica import *
 
 
-#         MessageBox.showerror('Error:[analizado.py][CG002]','No se pudo convertir un diccionario revise el texto introducido')
 
 ################################################################
 #Variables Globales
@@ -30,10 +29,6 @@ recursividadactiva = True
 nodorecursivo = {'nombre':'','valor':'','activo': False}
 
 ################################################################
-
-
-
-
 def obtenertexto(text, a):
     #Texto
     string = ''
@@ -237,7 +232,6 @@ def formar_instrucciones():
 
 
 ################################################################
-
 def esunnumero(posiblenumero):
     try:
         int(posiblenumero)
@@ -250,7 +244,6 @@ def esunnumero(posiblenumero):
             return False
 
 ################################################################
-
 def interpretar_instruccion(operacion, valor1, valor2):
     global listainstrucciones, recursividadactiva, nodorecursivo
     
@@ -456,8 +449,6 @@ def erroresjson():
             a +=1
             nuevoerror = {'No': a,'descripcion':{'lexema':error[0],'tipo':error[3],'columna':error[2],'fila':error[1]}}
             diccionarioerrores['errores'].append(nuevoerror)
-            
-        
         
         errorjson = json.dumps(diccionarioerrores,indent=4)
         return errorjson
@@ -469,8 +460,6 @@ def erroresjson():
 
 def graphviz():
     #Crear imagen Graphviz
-    #system('dot -Tpng archivo.dot -o archivograph1.png')
-    
     global configuraciones
     Arbol.generagraficaarbol()
     Arbol.configuraciones(configuraciones)
