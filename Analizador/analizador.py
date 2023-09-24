@@ -385,7 +385,7 @@ def realizar_instruccion():
 def lexico(texto):
     print('largo',len(texto),'texto:', texto,)
     #Validador
-    if len(texto) <= 80:
+    if len(texto) <= 60:
         MessageBox.showerror('Error - lexico()','No hay informacion necesarioa para procesarlo')
         return
 
