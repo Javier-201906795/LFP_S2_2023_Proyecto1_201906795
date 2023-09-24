@@ -82,9 +82,9 @@ def Analizar():
     
 
 def Errores():
-    aritmetica.inverso(25.24)
-    aritmetica.inverso(5244)
-    aritmetica.inverso(12345)
+    aritmetica.mod(5,2)
+    aritmetica.mod(2,2)
+    aritmetica.mod(7,2)
     print('errores')
     contenidojson = analizador.erroresjson()
     if contenidojson == None:
