@@ -430,7 +430,7 @@ def lexico(texto):
     print('\n||||||| [ CONFIGURACIONES ] |||||||')
     print(configuraciones)
 
-    MessageBox.showwarning('Analizador lexico()','Se analizo el contenido con exito.')
+    MessageBox.showinfo('Analizador lexico()','Se analizo el contenido con exito.')
     
 
 
