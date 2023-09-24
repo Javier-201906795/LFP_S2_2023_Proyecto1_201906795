@@ -85,6 +85,10 @@ def Errores():
     if contenidojson == None:
         MessageBox.showinfo('Advertencia','No hay errores que evaluar')
     else:
+         #Guardar
+        archivo = open('error.RESULTADOS_201906795.json','w')
+        archivo.write(contenidojson)
+        archivo.close()
         MessageBox.showinfo('Advertencia','Se creo el archivo "error.RESULTADOS_201906795.json"')
         print(contenidojson)
 
