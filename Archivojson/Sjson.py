@@ -19,14 +19,4 @@ def jsonabrirarchivo(ruta):
 
 
 
-def diccionarioJSON(txtjson):
-    try:
-        datosdiccionario = json.loads(txtjson)
-        return datosdiccionario
-    except:
-        errmensaje = "♦ Error[SJSON.py][CD003]: no se pudo convertir en un diccionario el texto proporcionado"
-        print(errmensaje)
-        return ValueError(errmensaje)
-
-
 
